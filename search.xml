@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[Hexo搭建Github博客（一）- 环境搭建]]></title>
+      <url>%2F2016%2F11%2F18%2FHexo%E6%90%AD%E5%BB%BAGithub%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%80%EF%BC%89-%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%2F</url>
+      <content type="text"><![CDATA[个人看法,github不图谋利，相当于一个数据源库，提供了丰富的数据库自己在做项目的过程中可以借鉴他人的开源代码，使用很方便，可以通过git 实现代码的托管，最重要的是免费使用，速度快而且还稳定，毕竟逼格那么高，就凑合着用吧，一回生，二回熟！！！ 设置Github注册github地址：https://github.com/按照提示注册就可以了，注册成功去验证邮箱。 创建github仓库仓库的名字要和你的账号对应，然后选择Create repositpry 常见成功后，会生成一个链接网址，此网址在后面配置主题时要用到。 安装Git + NodeJS环境安装Git用于推送hexo的内容到github上下载地址：https://git-scm.com/download/win打开效果是这样的： 安装NodeJS用来生成静态网页下载地址：https://nodejs.org/en/安装时保持默认配置就可以了。 进入github page页面设置页面选择settings创建一个默认的页面 直接选择Launch automatic page generator，其他东西都不用修改。 选择一个主题。 查看效果至此，github page已经创建完成，可以访问自己的站点了。如：http://zhengsy1222.github.io/效果就是上一步中你所选的主题，后面我们可以根据自己的喜好选择主题。 我选择的是next主题，后面我将继续介绍next主题的配置。]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[Python]]></title>
       <url>%2F2016%2F11%2F10%2FPython%2F</url>
       <content type="text"><![CDATA[python是一门脚本语言有序列表 元组 列表 字典 图片]]></content>
