@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="tomcat," />
 
 
 
@@ -84,15 +84,29 @@
 
 
 
-<meta name="description" content="无需言，做自己！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2016/10/index.html">
+<meta name="description" content="0x00【课前小菜】1、Apache是web服务器，html容器，可同构插件支持php；2、Tomcat是应用（java）服务器，jsp/servlet容器，用于发布jsp以及java的；3、Apache可以单方向的访问Tomcat的资源；4、Tomcat manager/html弱口令管理界面 （tomcat—tomcat，admin–admin）
+0x01【课上消化】登录：http://10.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tomcat Manager管理界面Getshell">
+<meta property="og:url" content="http://yoursite.com/2016/11/19/Tomcat-Manager管理界面Getshell/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="无需言，做自己！">
+<meta property="og:description" content="0x00【课前小菜】1、Apache是web服务器，html容器，可同构插件支持php；2、Tomcat是应用（java）服务器，jsp/servlet容器，用于发布jsp以及java的；3、Apache可以单方向的访问Tomcat的资源；4、Tomcat manager/html弱口令管理界面 （tomcat—tomcat，admin–admin）
+0x01【课上消化】登录：http://10.">
+<meta property="og:image" content="http://yoursite.com/\images\web安全\web中间件漏洞\tomcat\1.png">
+<meta property="og:image" content="http://yoursite.com/\images\web安全\web中间件漏洞\tomcat\2.png">
+<meta property="og:image" content="http://yoursite.com/\images\web安全\web中间件漏洞\tomcat\3.png">
+<meta property="og:image" content="http://yoursite.com/\images\web安全\web中间件漏洞\tomcat\4.png">
+<meta property="og:image" content="http://yoursite.com/\images\web安全\web中间件漏洞\tomcat\5.png">
+<meta property="og:image" content="http://yoursite.com/\images\web安全\web中间件漏洞\tomcat\6.png">
+<meta property="og:image" content="http://yoursite.com/\images\web安全\web中间件漏洞\tomcat\7.png">
+<meta property="og:image" content="http://yoursite.com/\images\web安全\web中间件漏洞\tomcat\8.png">
+<meta property="og:image" content="http://yoursite.com/\images\web安全\web中间件漏洞\tomcat\9.png">
+<meta property="og:updated_time" content="2016-11-18T17:13:47.252Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
-<meta name="twitter:description" content="无需言，做自己！">
+<meta name="twitter:title" content="Tomcat Manager管理界面Getshell">
+<meta name="twitter:description" content="0x00【课前小菜】1、Apache是web服务器，html容器，可同构插件支持php；2、Tomcat是应用（java）服务器，jsp/servlet容器，用于发布jsp以及java的；3、Apache可以单方向的访问Tomcat的资源；4、Tomcat manager/html弱口令管理界面 （tomcat—tomcat，admin–admin）
+0x01【课上消化】登录：http://10.">
+<meta name="twitter:image" content="http://yoursite.com/\images\web安全\web中间件漏洞\tomcat\1.png">
 
 
 
@@ -113,10 +127,10 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2016/10/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/11/19/Tomcat-Manager管理界面Getshell/"/>
 
 
-  <title> 归档 | Hexo </title>
+  <title> Tomcat Manager管理界面Getshell | Hexo </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -137,7 +151,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
@@ -248,73 +262,201 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 6 篇日志。 继续努力。
-    </span>
-
+  <div id="posts" class="posts-expand">
+      #render方法第二个参数is_index为是否为首页
+      #第三个参数is_pv为我们刚才设置的是否显示计数
     
 
-      
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Tomcat Manager管理界面Getshell
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-19T00:50:27+08:00" content="2016-11-19">
+              2016-11-19
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Web中间件漏洞/" itemprop="url" rel="index">
+                    <span itemprop="name">Web中间件漏洞</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/19/Tomcat-Manager管理界面Getshell/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/19/Tomcat-Manager管理界面Getshell/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          <span>&nbsp; | &nbsp;
+          <span id="busuanzi_value_page_pv" ></span>次阅读
+          </span>    
+          
+          
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
       
       
 
       
+        <h2 id="0x00【课前小菜】"><a href="#0x00【课前小菜】" class="headerlink" title="0x00【课前小菜】"></a><strong>0x00【课前小菜】</strong></h2><p>1、Apache是web服务器，html容器，可同构插件支持php；<br>2、Tomcat是应用（java）服务器，jsp/servlet容器，用于发布jsp以及java的；<br>3、Apache可以单方向的访问Tomcat的资源；<br>4、Tomcat manager/html弱口令管理界面 （tomcat—tomcat，admin–admin）</p>
+<h2 id="0x01【课上消化】"><a href="#0x01【课上消化】" class="headerlink" title="0x01【课上消化】"></a><strong>0x01【课上消化】</strong></h2><p>登录：<a href="http://10.22.66.6:8080/manager/html" target="_blank" rel="external">http://10.22.66.6:8080/manager/html</a><br>用户名和密码：tomact  tomact</p>
+<p><img src="\images\web安全\web中间件漏洞\tomcat\1.png" alt="image"></p>
+<a id="more"></a>
+<p>zipzip.jsp  =========》zipzip.zip ========》zipzip.war<br>            压缩             修改压缩包后缀</p>
+<p>注：这里需要说明一下，压缩的时候.rar格式是不能上传成功的。。。</p>
+<p><img src="\images\web安全\web中间件漏洞\tomcat\2.png" alt="image"></p>
+<p><img src="\images\web安全\web中间件漏洞\tomcat\3.png" alt="image"></p>
+<p>上传成功后会自动生成一个与压缩包同名的文件。</p>
+<p>访问该刚上传的文件：<a href="http://10.22.66.6:8080/zipzip/zipzip.jsp" target="_blank" rel="external">http://10.22.66.6:8080/zipzip/zipzip.jsp</a></p>
+<p><img src="\images\web安全\web中间件漏洞\tomcat\4.png" alt="image"></p>
+<p>输入密码“admin”回车，即可访问通过webshell得到服务器权限。<br>服务器的一些信息:</p>
+<p><img src="\images\web安全\web中间件漏洞\tomcat\5.png" alt="image"></p>
+<p>执行命令<br><img src="\images\web安全\web中间件漏洞\tomcat\6.png" alt="image"></p>
+<p>文件操作<br><img src="\images\web安全\web中间件漏洞\tomcat\7.png" alt="image"></p>
+<h2 id="0x03【修补漏洞】"><a href="#0x03【修补漏洞】" class="headerlink" title="0x03【修补漏洞】"></a><strong>0x03【修补漏洞】</strong></h2><h3 id="漏洞根源"><a href="#漏洞根源" class="headerlink" title="漏洞根源"></a>漏洞根源</h3><p>Tomcat漏洞是由于tomcat-users.xml文件引起的。该文件保存了Tomcat后台登录的用户和密码，并且在默认状态下成功的登录者获得的是manager权限即管理员权限。下面是默认状态下的tomcat-users.xml文件的部分内容：<br>该文件路径： /opt/apache-tomcat-8.5.4/conf/tomcat-users.xml</p>
+<p><img src="\images\web安全\web中间件漏洞\tomcat\8.png" alt="image"></p>
+<p><img src="\images\web安全\web中间件漏洞\tomcat\9.png" alt="image"></p>
+<h3 id="漏洞修补"><a href="#漏洞修补" class="headerlink" title="漏洞修补"></a>漏洞修补</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">A.改用户名和密码</div><div class="line">B.修改权限</div><div class="line">	&lt;user username=&quot;tomcat&quot; password=&quot;tomcat&quot; roles=&quot;manager-gui&quot;/&gt;</div><div class="line">	去掉roles属性里的manager，然后重启tomcat。因为tomcat重启时会重新加载配置文件。</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2016">2016</h2>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/tomcat/" rel="tag">#tomcat</a>
+          
         </div>
       
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/18/Hexo搭建GitHub博客（三）-Next主题配置使用/" rel="next" title="Hexo搭建GitHub博客（三）- Next主题配置使用">
+                <i class="fa fa-chevron-left"></i> Hexo搭建GitHub博客（三）- Next主题配置使用
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/11/19/利用fcgi-exp对php-fpm进行远程利用/" rel="prev" title="利用fcgi_exp对php-fpm进行远程利用">
+                利用fcgi_exp对php-fpm进行远程利用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
 
       
-
-  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/29/hello-world/" itemprop="url">
-              
-                <span itemprop="name">Hello World</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-29T14:36:53+08:00"
-              content="2016-10-29" >
-          10-29
-        </time>
-      </div>
-
-    </header>
+      
+    </footer>
   </article>
 
 
 
-    
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
 
-  </section>
-
-  
-
+      
+    </div>
+  </div>
 
 
           </div>
           
 
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/11/19/Tomcat-Manager管理界面Getshell/"
+           data-title="Tomcat Manager管理界面Getshell" data-url="http://yoursite.com/2016/11/19/Tomcat-Manager管理界面Getshell/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -334,8 +476,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -410,6 +561,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x00【课前小菜】"><span class="nav-number">1.</span> <span class="nav-text">0x00【课前小菜】</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01【课上消化】"><span class="nav-number">2.</span> <span class="nav-text">0x01【课上消化】</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x03【修补漏洞】"><span class="nav-number">3.</span> <span class="nav-text">0x03【修补漏洞】</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#漏洞根源"><span class="nav-number">3.1.</span> <span class="nav-text">漏洞根源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#漏洞修补"><span class="nav-number">3.2.</span> <span class="nav-text">漏洞修补</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -506,11 +668,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
 
 
   
