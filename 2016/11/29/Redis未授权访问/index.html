@@ -84,12 +84,14 @@
 
 
 
-<meta name="description" content="漏洞概述Redis是一个开源的、支持网络、基于内存、键值对（key-value）存储数据库，提供多种语言的API，使用ANSI C编写。Redis手动编译安装，默认的配置允许外部链接并且没有密码。如果Redis运行在root权限上，可以写任意文件。Redis默认开放端口是6379。">
+<meta name="description" content="漏洞概述Redis是一个开源的、支持网络、基于内存、键值对（key-value）存储数据库，提供多种语言的API，使用ANSI C编写。
+Redis手动编译安装，默认的配置允许外部链接并且没有密码。如果Redis运行在root权限上，可以写任意文件。Redis默认开放端口是6379。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Redis未授权访问">
 <meta property="og:url" content="http://yoursite.com/2016/11/29/Redis未授权访问/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="漏洞概述Redis是一个开源的、支持网络、基于内存、键值对（key-value）存储数据库，提供多种语言的API，使用ANSI C编写。Redis手动编译安装，默认的配置允许外部链接并且没有密码。如果Redis运行在root权限上，可以写任意文件。Redis默认开放端口是6379。">
+<meta property="og:description" content="漏洞概述Redis是一个开源的、支持网络、基于内存、键值对（key-value）存储数据库，提供多种语言的API，使用ANSI C编写。
+Redis手动编译安装，默认的配置允许外部链接并且没有密码。如果Redis运行在root权限上，可以写任意文件。Redis默认开放端口是6379。">
 <meta property="og:image" content="http://yoursite.com/\images\web安全\web中间件漏洞\redis\1.png">
 <meta property="og:image" content="http://yoursite.com/\images\web安全\web中间件漏洞\redis\2.png">
 <meta property="og:image" content="http://yoursite.com/\images\web安全\web中间件漏洞\redis\3.png">
@@ -107,10 +109,11 @@
 <meta property="og:image" content="http://yoursite.com/\images\web安全\web中间件漏洞\redis\15.png">
 <meta property="og:image" content="http://yoursite.com/\images\web安全\web中间件漏洞\redis\16.png">
 <meta property="og:image" content="http://yoursite.com/\images\web安全\web中间件漏洞\redis\17.png">
-<meta property="og:updated_time" content="2016-11-29T14:16:58.587Z">
+<meta property="og:updated_time" content="2016-11-29T14:25:19.329Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis未授权访问">
-<meta name="twitter:description" content="漏洞概述Redis是一个开源的、支持网络、基于内存、键值对（key-value）存储数据库，提供多种语言的API，使用ANSI C编写。Redis手动编译安装，默认的配置允许外部链接并且没有密码。如果Redis运行在root权限上，可以写任意文件。Redis默认开放端口是6379。">
+<meta name="twitter:description" content="漏洞概述Redis是一个开源的、支持网络、基于内存、键值对（key-value）存储数据库，提供多种语言的API，使用ANSI C编写。
+Redis手动编译安装，默认的配置允许外部链接并且没有密码。如果Redis运行在root权限上，可以写任意文件。Redis默认开放端口是6379。">
 <meta name="twitter:image" content="http://yoursite.com/\images\web安全\web中间件漏洞\redis\1.png">
 
 
@@ -354,7 +357,8 @@
       
 
       
-        <h2 id="漏洞概述"><a href="#漏洞概述" class="headerlink" title="漏洞概述"></a><strong>漏洞概述</strong></h2><p>Redis是一个开源的、支持网络、基于内存、键值对（key-value）存储数据库，提供多种语言的API，使用ANSI C编写。<br>Redis手动编译安装，默认的配置允许外部链接并且没有密码。<br>如果Redis运行在root权限上，可以写任意文件。<br>Redis默认开放端口是6379。<br><a id="more"></a><br>Redis 默认情况下，会绑定在 0.0.0.0:6379，这样将会将 Redis 服务暴露到公网上，如果在没有开启认证的情况下，可以导致任意用户在可以访问目标服务器的情况下未授权访问 Redis 以及读取 Redis 的数据。攻击者在未授权访问 Redis 的情况下可以利用 Redis 的相关方法，可以成功在 Redis 服务器上写入公钥，进而可以使用对应私钥直接登录目标服务器。<br>一句话总结：对公网开放，且未启用认证的redis服务器<br>利用 Redis 自身的提供的 config 命令，可以进行写文件操作。</p>
+        <h2 id="漏洞概述"><a href="#漏洞概述" class="headerlink" title="漏洞概述"></a><strong>漏洞概述</strong></h2><pre><code>Redis是一个开源的、支持网络、基于内存、键值对（key-value）存储数据库，提供多种语言的API，使用ANSI C编写。
+</code></pre><p>Redis手动编译安装，默认的配置允许外部链接并且没有密码。<br>如果Redis运行在root权限上，可以写任意文件。<br>Redis默认开放端口是6379。<br><a id="more"></a><br>    Redis 默认情况下，会绑定在 0.0.0.0:6379，这样将会将 Redis 服务暴露到公网上，如果在没有开启认证的情况下，可以导致任意用户在可以访问目标服务器的情况下未授权访问 Redis 以及读取 Redis 的数据。攻击者在未授权访问 Redis 的情况下可以利用 Redis 的相关方法，可以成功在 Redis 服务器上写入公钥，进而可以使用对应私钥直接登录目标服务器。<br>一句话总结：对公网开放，且未启用认证的redis服务器<br>利用 Redis 自身的提供的 config 命令，可以进行写文件操作。</p>
 <h2 id="安装Redis"><a href="#安装Redis" class="headerlink" title="安装Redis"></a><strong>安装Redis</strong></h2><h4 id="安装依赖程序"><a href="#安装依赖程序" class="headerlink" title="安装依赖程序"></a>安装依赖程序</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum install wget</div><div class="line">yum install gcc</div></pre></td></tr></table></figure>
 <h4 id="获取安装文件、解压、进入目录"><a href="#获取安装文件、解压、进入目录" class="headerlink" title="获取安装文件、解压、进入目录"></a>获取安装文件、解压、进入目录</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">wget http://download.redis.io/releases/redis-3.2.3.tar.gz</div><div class="line">tar -xzf redis-3.2.3.tar.gz</div><div class="line">cd redis-3.2.3</div></pre></td></tr></table></figure>
 <h4 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">make</div></pre></td></tr></table></figure>
