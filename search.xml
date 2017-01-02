@@ -5,7 +5,7 @@
     <entry>
       <title><![CDATA[运行javac报告javac不是内部或外部命令，但是运行java、java -version正常]]></title>
       <url>%2F2017%2F01%2F01%2F%E8%BF%90%E8%A1%8Cjavac%E6%8A%A5%E5%91%8Ajavac%E4%B8%8D%E6%98%AF%E5%86%85%E9%83%A8%E6%88%96%E5%A4%96%E9%83%A8%E5%91%BD%E4%BB%A4%EF%BC%8C%E4%BD%86%E6%98%AF%E8%BF%90%E8%A1%8Cjava%E3%80%81java-version%E6%AD%A3%E5%B8%B8%2F</url>
-      <content type="text"><![CDATA[安装jdk经常遇到这种情况，下面分享解决方法。 配置环境变量包括JAVA_HOME，PATH和CLASSPATH三个部分用鼠标右击“我的电脑”，选择“属性”-&gt;“高级”-&gt;“环境变量”-&gt;“系统变量”-&gt;“新建”在“变量名”输入框中写入“JAVA_HOME”，在“变量值”输入框中写入“D:\Java\jdk1.8.0_66” （根据安装路径填写），然后点击“确定”，JAVA_HOME就设置完成了。 JAVA_HOME 添加jdk的安装目录，注意JAVA_HOME要书写正确：安装目录后边不要加分号。我的jdk安装在： 下面是“CLASSPATH”的配置。选中“系统变量”查看是否有CLASSPATH项目，如果没有就点击“新建”，如果已经存在就选中CLASSPATH选项，点击“编辑”按钮，然后在“变量名”中填写“CLASSPATH”，在“变量值”中填写“.;%JAVA_HOME%\lib;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar”（根据安装路径填写）。注意这个地方不要漏掉最前面的 点 . 在原来的path值后面添加 ;D:\Java\jdk1.8.0_66\bin;D:\Java\jre1.8.0_66\bin 我，cmd中执行java命令正常，输入javac会提示不是内部命令。。。 ###重点确定后，重新启动cmd，输入javac 这次就好用了。记得要重启。]]></content>
+      <content type="text"><![CDATA[安装jdk经常遇到这种情况，下面分享解决方法。 配置环境变量包括JAVA_HOME，PATH和CLASSPATH三个部分用鼠标右击“我的电脑”，选择“属性”-&gt;“高级”-&gt;“环境变量”-&gt;“系统变量”-&gt;“新建”在“变量名”输入框中写入“JAVA_HOME”，在“变量值”输入框中写入“D:\Java\jdk1.8.0_66” （根据安装路径填写），然后点击“确定”，JAVA_HOME就设置完成了。 JAVA_HOME 添加jdk的安装目录，注意JAVA_HOME要书写正确：安装目录后边不要加分号。我的jdk安装在： 下面是“CLASSPATH”的配置。选中“系统变量”查看是否有CLASSPATH项目，如果没有就点击“新建”，如果已经存在就选中CLASSPATH选项，点击“编辑”按钮，然后在“变量名”中填写“CLASSPATH”，在“变量值”中填写“.;%JAVA_HOME%\lib;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar”（根据安装路径填写）。注意这个地方不要漏掉最前面的 点 . 在原来的path值后面添加 ;D:\Java\jdk1.8.0_66\bin;D:\Java\jre1.8.0_66\bin 我，cmd中执行java命令正常，输入javac会提示不是内部命令。。。 重点确定后，重新启动cmd，输入javac 这次就好用了。记得要重启。]]></content>
     </entry>
 
     
