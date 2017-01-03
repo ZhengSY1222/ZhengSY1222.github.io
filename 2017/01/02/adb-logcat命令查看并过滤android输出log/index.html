@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Android,渗透测试,ADB," />
 
 
 
@@ -84,16 +84,22 @@
 
 
 
-<meta name="description" content="cmd命令行中使用adb logcat命令查看Android系统和应用的log，dos窗口按ctrl+c中断输出log记录。logcat日志中的优先级/tag标记：android输出的每一条日志都有一个标记和优先级与其关联。优先级是下面的字符，顺序是从低到高：V — 明细 verbose(最低优先级)D — 调试 debugI — 信息 infoW — 警告 warnE — 错误 errorF —">
+<meta name="description" content="cmd命令行中使用adb logcat命令查看Android系统和应用的log，dos窗口按ctrl+c中断输出log记录。
+
+logcat日志中的优先级/tag标记android输出的每一条日志都有一个标记和优先级与其关联。优先级是下面的字符，顺序是从低到高：1234567V — 明细 verbose(最低优先级)D — 调试 debugI — 信息 infoW — 警告 warnE — 错误">
 <meta property="og:type" content="article">
 <meta property="og:title" content="adb logcat命令查看并过滤android输出log">
 <meta property="og:url" content="http://yoursite.com/2017/01/02/adb-logcat命令查看并过滤android输出log/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="cmd命令行中使用adb logcat命令查看Android系统和应用的log，dos窗口按ctrl+c中断输出log记录。logcat日志中的优先级/tag标记：android输出的每一条日志都有一个标记和优先级与其关联。优先级是下面的字符，顺序是从低到高：V — 明细 verbose(最低优先级)D — 调试 debugI — 信息 infoW — 警告 warnE — 错误 errorF —">
-<meta property="og:updated_time" content="2017-01-02T13:05:43.019Z">
+<meta property="og:description" content="cmd命令行中使用adb logcat命令查看Android系统和应用的log，dos窗口按ctrl+c中断输出log记录。
+
+logcat日志中的优先级/tag标记android输出的每一条日志都有一个标记和优先级与其关联。优先级是下面的字符，顺序是从低到高：1234567V — 明细 verbose(最低优先级)D — 调试 debugI — 信息 infoW — 警告 warnE — 错误">
+<meta property="og:updated_time" content="2017-01-03T10:17:25.132Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="adb logcat命令查看并过滤android输出log">
-<meta name="twitter:description" content="cmd命令行中使用adb logcat命令查看Android系统和应用的log，dos窗口按ctrl+c中断输出log记录。logcat日志中的优先级/tag标记：android输出的每一条日志都有一个标记和优先级与其关联。优先级是下面的字符，顺序是从低到高：V — 明细 verbose(最低优先级)D — 调试 debugI — 信息 infoW — 警告 warnE — 错误 errorF —">
+<meta name="twitter:description" content="cmd命令行中使用adb logcat命令查看Android系统和应用的log，dos窗口按ctrl+c中断输出log记录。
+
+logcat日志中的优先级/tag标记android输出的每一条日志都有一个标记和优先级与其关联。优先级是下面的字符，顺序是从低到高：1234567V — 明细 verbose(最低优先级)D — 调试 debugI — 信息 infoW — 警告 warnE — 错误">
 
 
 
@@ -288,6 +294,25 @@
           </span>
 
           
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
 
           
             
@@ -317,8 +342,17 @@
       
 
       
-        <p>cmd命令行中使用adb logcat命令查看Android系统和应用的log，dos窗口按ctrl+c中断输出log记录。<br>logcat日志中的优先级/tag标记：<br>android输出的每一条日志都有一个标记和优先级与其关联。<br>优先级是下面的字符，顺序是从低到高：<br>V — 明细 verbose(最低优先级)<br>D — 调试 debug<br>I — 信息 info<br>W — 警告 warn<br>E — 错误 error<br>F — 严重错误 fatal<br>S — 无记载 silent<br>标记是一个简短的字符串，用于标识原始消息的来源。如下是一个日志输出的消息，优先级是“D”，标记是“PowerManagerService”：<br>D/PowerManagerService( 305): onSensorChanged: light value: 306.0<br>使用logcat命令查看android日志输出：<br>adb logcat     //显示全部日志<br>adb logcat &gt; c:\test.log //将日志保存到文件test.log<br>根据tag标记和级别过滤日志输出：<br>仅输出标记为“ActivityManager”且优先级大于等于“Info”和标记为“PowerManagerService”并且优先级大于等于“Debug”的日志：<br>adb logcat ActivityManager:I PowerManagerService:D <em>:S<br>注：</em>:S用于设置所有标记的日志优先级为S，这样可以确保仅输出符合条件的日志。<br>adb logcat *:W   //显示所有优先级大于等于“warning”的日志<br>adb logcat -s PowerManagerService   //显示PowerManagerService的日志信息<br>Logcat命令列表：<br>-d 将日志显示在控制台后退出<br>-c 清理已存在的日志<br>-f <filename> 将日志输出到文件<br>adb logcat -f /sdcard/test.txt<br>-v <format>设置日志输入格式控制输出字段，默认的是brief格式<br>brief — 显示优先级/标记和原始进程的PID (默认格式)<br>process — 仅显示进程PID<br>tag — 仅显示优先级/标记<br>thread — 仅显示进程：线程和优先级/标记<br>raw — 显示原始的日志信息，没有其他的元数据字段<br>time — 显示日期，调用时间，优先级/标记，PID<br>long —显示所有的元数据字段并且用空行分隔消息内容<br>adb logcat -v thread   //使用 thread 输出格式<br>注意-v 选项中只能指定一种格式。<br>-b <buffer>加载一个可使用的日志缓冲区供查看，默认值是main。<br>radio — 查看包含在无线/电话相关的缓冲区消息<br>events — 查看事件相关的消息<br>main — 查看主缓冲区 (默认缓冲区)<br>adb logcat -b radio     //查看radio缓冲区</buffer></format></filename></p>
-<p>adb  push  pull   ：</p>
+        <blockquote>
+<p>cmd命令行中使用adb logcat命令查看Android系统和应用的log，dos窗口按ctrl+c中断输出log记录。</p>
+</blockquote>
+<h2 id="logcat日志中的优先级-tag标记"><a href="#logcat日志中的优先级-tag标记" class="headerlink" title="logcat日志中的优先级/tag标记"></a>logcat日志中的优先级/tag标记</h2><p>android输出的每一条日志都有一个标记和优先级与其关联。<br>优先级是下面的字符，顺序是从低到高：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">V — 明细 verbose(最低优先级)</div><div class="line">D — 调试 debug</div><div class="line">I — 信息 info</div><div class="line">W — 警告 warn</div><div class="line">E — 错误 error</div><div class="line">F — 严重错误 fatal</div><div class="line">S — 无记载 silent</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>标记是一个简短的字符串，用于标识原始消息的来源。如下是一个日志输出的消息，优先级是“D”，标记是“PowerManagerService”：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">D/PowerManagerService( 305): onSensorChanged: light value: 306.0</div></pre></td></tr></table></figure></p>
+<h2 id="使用logcat命令查看android日志输出"><a href="#使用logcat命令查看android日志输出" class="headerlink" title="使用logcat命令查看android日志输出"></a>使用logcat命令查看android日志输出</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">adb logcat     //显示全部日志</div><div class="line">adb logcat &gt; c:\test.log //将日志保存到文件test.log</div></pre></td></tr></table></figure>
+<h2 id="根据tag标记和级别过滤日志输出"><a href="#根据tag标记和级别过滤日志输出" class="headerlink" title="根据tag标记和级别过滤日志输出"></a>根据tag标记和级别过滤日志输出</h2><p>仅输出标记为“ActivityManager”且优先级大于等于“Info”和标记为“PowerManagerService”并且优先级大于等于“Debug”的日志：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb logcat ActivityManager:I PowerManagerService:D *:S</div></pre></td></tr></table></figure></p>
+<p>注：<em>:S用于设置所有标记的日志优先级为S，这样可以确保仅输出符合条件的日志。<br>adb logcat </em>:W   //显示所有优先级大于等于“warning”的日志<br>adb logcat -s PowerManagerService   //显示PowerManagerService的日志信息</p>
+<h2 id="Logcat命令列表"><a href="#Logcat命令列表" class="headerlink" title="Logcat命令列表"></a>Logcat命令列表</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">-d 将日志显示在控制台后退出</div><div class="line">-c 清理已存在的日志</div><div class="line">-f &lt;filename&gt; 将日志输出到文件</div><div class="line">***adb logcat -f /sdcard/test.txt***</div><div class="line">-v &lt;format&gt;设置日志输入格式控制输出字段，默认的是brief格式</div><div class="line">brief — 显示优先级/标记和原始进程的PID (默认格式)</div><div class="line">process — 仅显示进程PID</div><div class="line">tag — 仅显示优先级/标记</div><div class="line">thread — 仅显示进程：线程和优先级/标记</div><div class="line">raw — 显示原始的日志信息，没有其他的元数据字段</div><div class="line">time — 显示日期，调用时间，优先级/标记，PID</div><div class="line">long —显示所有的元数据字段并且用空行分隔消息内容</div><div class="line">***adb logcat -v thread   //使用 thread 输出格式***</div><div class="line">***注意-v 选项中只能指定一种格式。***</div><div class="line">-b &lt;buffer&gt;加载一个可使用的日志缓冲区供查看，默认值是main。</div><div class="line">radio — 查看包含在无线/电话相关的缓冲区消息</div><div class="line">***adb logcat -b radio     //查看radio缓冲区***</div><div class="line">events — 查看事件相关的消息</div><div class="line">main — 查看主缓冲区 (默认缓冲区)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb  push  pull</div></pre></td></tr></table></figure>
 <p>下载<br>D:>adb pull /data/ d:\data<br>第一个data是手机或模拟器目录<br>第二个data是PC的目录</p>
 <p>上传<br>adb push D:\file.txt  /system/temp/</p>
 
@@ -340,6 +374,16 @@
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag">#Android</a>
+          
+            <a href="/tags/渗透测试/" rel="tag">#渗透测试</a>
+          
+            <a href="/tags/ADB/" rel="tag">#ADB</a>
+          
+        </div>
       
 
       
@@ -445,7 +489,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -454,7 +498,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -508,7 +552,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#logcat日志中的优先级-tag标记"><span class="nav-number">1.</span> <span class="nav-text">logcat日志中的优先级/tag标记</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用logcat命令查看android日志输出"><span class="nav-number">2.</span> <span class="nav-text">使用logcat命令查看android日志输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#根据tag标记和级别过滤日志输出"><span class="nav-number">3.</span> <span class="nav-text">根据tag标记和级别过滤日志输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Logcat命令列表"><span class="nav-number">4.</span> <span class="nav-text">Logcat命令列表</span></a></li></ol></div>
             
           </div>
         </section>

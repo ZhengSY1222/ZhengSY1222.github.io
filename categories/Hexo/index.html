@@ -87,7 +87,7 @@
 <meta name="description" content="无需言，做自己！">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/categories/hexo/index.html">
+<meta property="og:url" content="http://yoursite.com/categories/Hexo/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="无需言，做自己！">
 <meta name="twitter:card" content="summary">
@@ -113,10 +113,10 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/hexo/"/>
+  <link rel="canonical" href="http://yoursite.com/categories/Hexo/"/>
 
 
-  <title> 分类: hexo | Hexo </title>
+  <title> 分类: Hexo | Hexo </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -251,7 +251,7 @@
   <section id="posts" class="posts-collapse">
     <div class="collection-title">
       <h2 >
-        hexo
+        Hexo
         <small>分类</small>
       </h2>
     </div>
@@ -264,9 +264,9 @@
 
       <h1 class="post-title">
         
-            <a class="post-title-link" href="/2016/11/18/Hexo搭建GitHub博客（三）-Next主题配置使用/" itemprop="url">
+            <a class="post-title-link" href="/2016/11/18/Hexo搭建Github博客（二）-Hexo配置和使用/" itemprop="url">
               
-                <span itemprop="name">Hexo搭建GitHub博客（三）- Next主题配置使用</span>
+                <span itemprop="name">Hexo搭建Github博客（二）- Hexo配置和使用</span>
               
             </a>
         
@@ -274,7 +274,35 @@
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2016-11-18T17:43:40+08:00"
+              datetime="2016-11-18T17:15:05+08:00"
+              content="2016-11-18" >
+          11-18
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
+        
+            <a class="post-title-link" href="/2016/11/18/Hexo搭建Github博客（一）-环境搭建/" itemprop="url">
+              
+                <span itemprop="name">Hexo搭建Github博客（一）- 环境搭建</span>
+              
+            </a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2016-11-18T15:35:04+08:00"
               content="2016-11-18" >
           11-18
         </time>
@@ -335,7 +363,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -344,7 +372,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -626,46 +654,6 @@
                 str += "</ul>";
                 if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
                 if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
-                $resultContent.innerHTML = str;
-            });
-            proceedsearch();
-        }
-    });}
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched == false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-
-    });
-
-    $('.popup-btn-close').click(function(e){
-      $('.popup').hide();
-      $(".popoverlay").remove();
-      $('body').css('overflow', '');
-    });
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-  </script>
-
-
-  
-
-  
-
-  
-
-  
-
-
-</body>
-</html>
- class="fa fa-search fa-5x" /></div>' }
                 $resultContent.innerHTML = str;
             });
             proceedsearch();
