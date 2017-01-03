@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="反编译APK,安卓逆向," />
 
 
 
@@ -84,16 +84,19 @@
 
 
 
-<meta name="description" content="1。 assets 文件夹此文件夹可以存放资源文件。至于是神马资源文件，怎么读取，这些我们就不用深究了，因为不常改。2。 res 文件夹主要用来存放资源。此文件夹下可以创建子文件，常见的有：anim 动画drawable 图片color 颜色menu 菜单layout 布局values 常量值xml 任意xml文件我们修改apk时，一般就在这里修改。比如汉化，改名称，去广告，改字体颜色，大小神马的">
+<meta name="description" content="文件功能概述assets文件夹此文件夹可以存放资源文件。至于是神马资源文件，怎么读取，这些我们就不用深究了，因为不常改。
+res 文件夹主要用来存放资源。此文件夹下可以创建子文件，常见的有：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="反编译APK后得到的几个文件和文件夹">
 <meta property="og:url" content="http://yoursite.com/2017/01/02/反编译APK后得到的几个文件和文件夹/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1。 assets 文件夹此文件夹可以存放资源文件。至于是神马资源文件，怎么读取，这些我们就不用深究了，因为不常改。2。 res 文件夹主要用来存放资源。此文件夹下可以创建子文件，常见的有：anim 动画drawable 图片color 颜色menu 菜单layout 布局values 常量值xml 任意xml文件我们修改apk时，一般就在这里修改。比如汉化，改名称，去广告，改字体颜色，大小神马的">
-<meta property="og:updated_time" content="2017-01-02T13:06:49.223Z">
+<meta property="og:description" content="文件功能概述assets文件夹此文件夹可以存放资源文件。至于是神马资源文件，怎么读取，这些我们就不用深究了，因为不常改。
+res 文件夹主要用来存放资源。此文件夹下可以创建子文件，常见的有：">
+<meta property="og:updated_time" content="2017-01-03T08:51:16.212Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="反编译APK后得到的几个文件和文件夹">
-<meta name="twitter:description" content="1。 assets 文件夹此文件夹可以存放资源文件。至于是神马资源文件，怎么读取，这些我们就不用深究了，因为不常改。2。 res 文件夹主要用来存放资源。此文件夹下可以创建子文件，常见的有：anim 动画drawable 图片color 颜色menu 菜单layout 布局values 常量值xml 任意xml文件我们修改apk时，一般就在这里修改。比如汉化，改名称，去广告，改字体颜色，大小神马的">
+<meta name="twitter:description" content="文件功能概述assets文件夹此文件夹可以存放资源文件。至于是神马资源文件，怎么读取，这些我们就不用深究了，因为不常改。
+res 文件夹主要用来存放资源。此文件夹下可以创建子文件，常见的有：">
 
 
 
@@ -288,6 +291,25 @@
           </span>
 
           
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/手机客户端测试/" itemprop="url" rel="index">
+                    <span itemprop="name">手机客户端测试</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
 
           
             
@@ -317,10 +339,41 @@
       
 
       
-        <p>1。 assets 文件夹<br>此文件夹可以存放资源文件。至于是神马资源文件，怎么读取，这些我们就不用深究了，因为不常改。<br>2。 res 文件夹<br>主要用来存放资源。此文件夹下可以创建子文件，常见的有：<br>anim 动画<br>drawable 图片<br>color 颜色<br>menu 菜单<br>layout 布局<br>values 常量值<br>xml 任意xml文件<br>我们修改apk时，一般就在这里修改。比如汉化，改名称，去广告，改字体颜色，大小神马的。<br>3。smali<br>里面主要是dex文件反编译得到的smali文件。不会java的改不起。顶多搜几个关键词汉化一下。值得注意的是，汉化时不能直接输入汉字，而应输入对应的十六进制代码。<br>4。AndroidManifest.xml<br>此文件是apk中最重要的文件之一。它是apk的全局配置文件，提供了android系统所需要的关于该应用的必要信息。</p>
-<p>res目录浅说：<br>1 anim文件夹<br>    后缀名为.xml。动画文件都放在这里。<br>2 drawable文件夹<br>用于存放图片资源，图片或者xml。<br>(1) 图片<br>图片格式：png，9.png，jpg，gif。<br>注意：9.png是一种特殊的png格式，与一般的png格式有区别！很多人在改完图片后将两种格式混淆，导致回编译失败。后面有制作9.png格式图片的方法。<br>(2) xml<br>xml文件通常为自定义的形状shape或图片选择器类selector似的东西，就是不同状态下不同的图片，用于设置background什么的。<br>(3) drawable文件夹为了对屏幕的适配，<br>①对分辨率笼统的分：名字可以为：drawable-ldpi<br>drawable-mdpi<br>drawable-hdpi<br>drawable-xhdp<br>drawable-nodpi<br>drawable-tvdpi<br>分辨率依次由高到低<br>②具体到某一分辨率：drawable-分辨率，比如：drawable-1280x720<br>③如果有横竖屏的区别，则命名为：drawable-land/port-mdpi，<br>3 color文件夹<br>用于存放color列表，和drawable的xml一样，表示不同状态下的不同颜色<br>4 menu文件夹<br>菜单资源文件夹。<br>5 layout文件夹<br>布局文件夹。此文件夹的名字也是可以起到屏幕适配的功能的。<br>①横竖屏：layout-land/port<br>②分辨率：layout-1280x720<br>6 values文件夹<br>存放常量值的文件夹。里面常见的xml文件为：<br>arrays.xml ：  资源数组.<br>colors.xml :   颜色值<br>dimens.xml ：  像素值.<br>strings.xml ： 字符串值.<br>styles.xml ：  样式值.<br>此文件夹，也有屏幕适配作用。比如：dimens在不同分辨率下的值。同样的是加-1280x720这样的后缀。<br>对于strings，values文件夹有各种语言的版本对应。默认为英文。中文的文件夹名字应该是：<br>values-zh-rCN 简体中文<br>values-zh-rTW 繁体中文<br>7 raw文件夹<br>存放不需要系统编译成二进制的文件，例如字体文件等，同assets文件夹类似。<br>8 xml文件夹<br>存放任意的xml文件。具体看名字。</p>
-<p>改apk时，我们主要改两种，即图片和xml。先讲图片：<br>改图片最简单了，注意好格式，分辨率即可。但有一点需注意，就是9.png和png格式图片的区别。许多人没注意这点，导致回编译总是失败。下面讲9.png格式图片的制作。<br>1 介绍 9patch<br>NinePatch.图片以*.9.png结尾，和普通图片的区别是四周多了一个边框<br>左边那条黑色线代表图片垂直拉伸的区域，上边的那条黑色线代表水平拉伸区域，右边的黑色线代表内容绘制的垂直区域，下边的黑色线代表内容绘制的水平区域，右边和下边的线是可选的，左边和上边的线不能省略。<br>采用NinePatch.图片做背景，可使背景随着内容的拉伸（缩小）而拉伸（缩小）<br>总之，通俗的将，9patch格式的图片就是有些部位能伸缩，有些部位不能的特殊png格式图片。<br>2 将png转化为9.png步骤如下<br>第一步，下载9妹工具，一楼工具包里有，双击打开draw9patch.bat，将图片拖到软件界面编辑。<br>第二步，勾选软件下面的三个选项，全选就对了。<br>第三步，把鼠标放到图片中央，此时你会看到图片四周有1像素的透明带<br>第四步，在左边和上边的透明带上各画一条黑线（鼠标拖动即可）<br>注意：当图片过大时上边的透明带会被黄色的提示框遮住，此时只能多点击黄色区域自己摸索透明带的位置。<br>第五步，保存，这个不用多说吧。<br>至此，将图片替换回原来的文件夹即可。需要注意的是，刚编辑的9patch.图片不能直接拖到原apk中，而应回编译后再替换进去。</p>
-<p>再说修改xml。改字体，软件全局背景，汉化，去广告神马的都通过这种方式。我们常改的是layout，drawable，values目录下的xml文件，如果要改桌面插件，要去xml文件夹中修改。必要时也可尝试修改AndroidManifest.xml。下面是常见代码（分类非标准）<br>1 引用（@）<br>1)引用自定义的资源<br>形式 @[package:]type/name<br>如 android:text=”@string/hello”<br>这里使用”@”前缀引入对一个资源的引用，后面的string/hello就是我们自定义的资源。<br>2) 引用系统资源<br>形式 @android:type/name<br>如 android:textColor=”@android:color/opaque_red” 指定package:android<br>3) 引用主题属性<br>形式 ？android:type/name<br>即引用当前主题中的属性的值。<br>2 文本（text）<br>textColor 文本颜色<br>textColorHighlight 被选中文字的底色，默认为蓝色<br>textColorHint 提示信息文字的颜色，默认为灰色。与hint一起使用<br>textColorLink 文字链接的颜色<br>textScaleX 设置文字之间间隔，默认为1.0f<br>textSize 文字大小<br>textStyle 字形<br>typeface 文本字体<br>height 文本区域的高度<br>maxHeight 文本区域的最大高度<br>width 文本区域的宽度<br>lines 文本的行数<br>3 视图（view）<br>background 背景色/背景图片（@null 透明）<br>clickable 是否响应点击事件<br>focusable 是否获得焦点<br>minHeight 视图最小高度<br>minWidth 视图最小宽度<br>padding 上下左右的边距<br>scrollbar 滚动条（none 隐藏，horizontal 水平，vertical 垂直）<br>tag 文本标签<br>visibility 是否显示View（visible 默认值，显示；invisible 不显示，但是仍然占用空间；gone 不显示，不占用空间）<br>4 布局（layout）<br>LinearLayout 线性布局<br>FrameLayout 单帧布局<br>RelativeLayout 相对布局<br>AbsoluteLayout 绝对布局<br>TableLayout 表格布局<br>layout_width 宽度<br>layout_height 高度<br>fill_patent 布满屏幕<br>wrap_content 适合大小<br>foreground 前景<br>background 背景<br>gravity 位置（center_vertical 居中；top 顶部，默认；bottom 底部）<br>orientation 定向（horizontal 水平，vertical 垂直）<br>5 主题（theme）<br>Theme.Dialog 对话框模式<br>Theme.NoTitleBar 无标题栏<br>Theme.NoTitleBar.Fullscreen 无标题栏，全屏<br>Theme.Light 白色背景<br>Theme.Light.NoTitleBar 白色背景，无标题栏<br>Theme.Light.NoTitleBar.Fullscreen 白色背景，无标题栏，全屏<br>Theme.Black 黑色背景<br>Theme.Black.NoTitleBar 黑色背景并，无标题栏<br>Theme.Black.NoTitleBar.Fullscreen 黑色背景，无标题栏，全屏<br>Theme.Wallpaper 桌面背景<br>Theme.Wallpaper.NoTitleBar 桌面背景，无标题栏<br>Theme.Wallpaper.NoTitleBar.Fullscreen 桌面背景，无标题栏，全屏<br>Theme.Translucent 半透明效果<br>Theme.Translucent.NoTitleBar 半透明，无标题栏<br>Theme.Translucent.NoTitleBar.Fullscreen 半透明效果，无标题栏，全屏<br>Theme.Panel 面板风格显示<br>Theme.Light.Panel 平板风格显示<br>6 颜色（color）<br>1) @color/×× 引用自定义的颜色，一般在res/values/colors.xml中<br>2) @android:color/×× 引用系统颜色<br>3) #×××××××× #后一共8个字符，由0~9，a~f组成。前两位是透明度，00表示全透明，ff表示不透明。后6位是RRGGBB，R红G绿B蓝，000000为白，ffffff为黑<br>7 单位<br>px 像素点<br>in 英寸<br>mm 毫米<br>pt 磅，1/72 英寸<br>dp 一个基于density的抽象单位，如果一个160dpi的屏幕，1dp=1px<br>dip 等同于dp<br>sp 同dp相似，但还会根据用户的字体大小偏好来缩放。<br>注意：sp一般是文本的单位，dip最常用</p>
+        <h2 id="文件功能概述"><a href="#文件功能概述" class="headerlink" title="文件功能概述"></a>文件功能概述</h2><h3 id="assets文件夹"><a href="#assets文件夹" class="headerlink" title="assets文件夹"></a>assets文件夹</h3><p>此文件夹可以存放资源文件。至于是神马资源文件，怎么读取，这些我们就不用深究了，因为不常改。</p>
+<h3 id="res-文件夹"><a href="#res-文件夹" class="headerlink" title="res 文件夹"></a>res 文件夹</h3><p>主要用来存放资源。<br>此文件夹下可以创建子文件，常见的有：<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">anim 动画</div><div class="line">drawable 图片</div><div class="line">color 颜色</div><div class="line">menu 菜单</div><div class="line">layout 布局</div><div class="line">values 常量值</div><div class="line">xml 任意xml文件</div></pre></td></tr></table></figure></p>
+<p>我们修改apk时，一般就在这里修改。比如汉化，改名称，去广告，改字体颜色，大小神马的。</p>
+<h3 id="smali"><a href="#smali" class="headerlink" title="smali"></a>smali</h3><p>主要是dex文件反编译得到的smali文件。不会java的改不起。顶多搜几个关键词汉化一下。值得注意的是，汉化时不能直接输入汉字，而应输入对应的十六进制代码。</p>
+<h3 id="AndroidManifest-xml"><a href="#AndroidManifest-xml" class="headerlink" title="AndroidManifest.xml"></a>AndroidManifest.xml</h3><p>此文件是apk中最重要的文件之一。它是apk的全局配置文件，提供了android系统所需要的关于该应用的必要信息。</p>
+<h2 id="功能细述"><a href="#功能细述" class="headerlink" title="功能细述"></a>功能细述</h2><h3 id="res目录浅说"><a href="#res目录浅说" class="headerlink" title="res目录浅说"></a>res目录浅说</h3><h4 id="anim文件夹"><a href="#anim文件夹" class="headerlink" title="anim文件夹"></a>anim文件夹</h4><pre><code>后缀名为.xml。动画文件都放在这里。
+</code></pre><h4 id="drawable文件夹"><a href="#drawable文件夹" class="headerlink" title="drawable文件夹"></a>drawable文件夹</h4><p>用于存放图片资源，图片或者xml。<br>(1) 图片<br>图片格式：png，9.png，jpg，gif<br>注意：9.png是一种特殊的png格式，与一般的png格式有区别！很多人在改完图片后将两种格式混淆，导致回编译失败。后面有制作9.png格式图片的方法。<br>(2) xml<br>xml文件通常为自定义的形状shape或图片选择器类selector似的东西，就是不同状态下不同的图片，用于设置background什么的。<br>(3) drawable文件夹为了对屏幕的适配，<br>对分辨率笼统的分：</p>
+<p>名字可以为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">drawable-ldpi</div><div class="line">drawable-mdpi</div><div class="line">drawable-hdpi</div><div class="line">drawable-xhdp</div><div class="line">drawable-nodpi</div><div class="line">drawable-tvdpi</div></pre></td></tr></table></figure></p>
+<p>分辨率依次由高到低</p>
+<p>具体到某一分辨率：drawable-分辨率，比如：drawable-1280x720</p>
+<p>如果有横竖屏的区别，则命名为：drawable-land/port-mdpi，</p>
+<h4 id="color文件夹"><a href="#color文件夹" class="headerlink" title="color文件夹"></a>color文件夹</h4><p>用于存放color列表，和drawable的xml一样，表示不同状态下的不同颜色</p>
+<h4 id="menu文件夹"><a href="#menu文件夹" class="headerlink" title="menu文件夹"></a>menu文件夹</h4><p>菜单资源文件夹。</p>
+<h4 id="layout文件夹"><a href="#layout文件夹" class="headerlink" title="layout文件夹"></a>layout文件夹</h4><p>布局文件夹。此文件夹的名字也是可以起到屏幕适配的功能的。<br>横竖屏：layout-land/port<br>分辨率：layout-1280x720</p>
+<h4 id="values文件夹"><a href="#values文件夹" class="headerlink" title="values文件夹"></a>values文件夹</h4><p>存放常量值的文件夹。里面常见的xml文件为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">arrays.xml ：  资源数组</div><div class="line">colors.xml :   颜色值</div><div class="line">dimens.xml ：  像素值</div><div class="line">strings.xml ： 字符串值</div><div class="line">styles.xml ：  样式值</div></pre></td></tr></table></figure></p>
+<p>此文件夹，也有屏幕适配作用。比如：dimens在不同分辨率下的值。同样的是加-1280x720这样的后缀。<br>对于strings，values文件夹有各种语言的版本对应。<br>默认为英文。中文的文件夹名字应该是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">values-zh-rCN 简体中文</div><div class="line">values-zh-rTW 繁体中文</div></pre></td></tr></table></figure></p>
+<h4 id="raw文件夹"><a href="#raw文件夹" class="headerlink" title="raw文件夹"></a>raw文件夹</h4><p>存放不需要系统编译成二进制的文件，例如字体文件等，同assets文件夹类似。</p>
+<h4 id="xml文件夹"><a href="#xml文件夹" class="headerlink" title="xml文件夹"></a>xml文件夹</h4><p>存放任意的xml文件。具体看名字。</p>
+<h2 id="移动端APP测试步骤"><a href="#移动端APP测试步骤" class="headerlink" title="移动端APP测试步骤"></a>移动端APP测试步骤</h2><p>改apk时，我们主要改两种，即图片和xml。</p>
+<h3 id="修改图片"><a href="#修改图片" class="headerlink" title="修改图片"></a>修改图片</h3><p>改图片最简单了，注意好格式，分辨率即可。但有一点需注意，就是9.png和png格式图片的区别。许多人没注意这点，导致回编译总是失败。下面讲9.png格式图片的制作。</p>
+<h4 id="介绍-9patch"><a href="#介绍-9patch" class="headerlink" title="介绍 9patch"></a>介绍 9patch</h4><p>NinePatch.图片以*.9.png结尾，和普通图片的区别是四周多了一个边框<br>左边那条黑色线代表图片垂直拉伸的区域，上边的那条黑色线代表水平拉伸区域，右边的黑色线代表内容绘制的垂直区域，下边的黑色线代表内容绘制的水平区域，右边和下边的线是可选的，左边和上边的线不能省略。<br>采用NinePatch.图片做背景，可使背景随着内容的拉伸（缩小）而拉伸（缩小）<br>总之，通俗的将，9patch格式的图片就是有些部位能伸缩，有些部位不能的特殊png格式图片。</p>
+<h4 id="将png转化为9-png步骤如下"><a href="#将png转化为9-png步骤如下" class="headerlink" title="将png转化为9.png步骤如下"></a>将png转化为9.png步骤如下</h4><p>第一步，下载9妹工具，一楼工具包里有，双击打开draw9patch.bat，将图片拖到软件界面编辑。<br>第二步，勾选软件下面的三个选项，全选就对了。<br>第三步，把鼠标放到图片中央，此时你会看到图片四周有1像素的透明带<br>第四步，在左边和上边的透明带上各画一条黑线（鼠标拖动即可）<br>注意：当图片过大时上边的透明带会被黄色的提示框遮住，此时只能多点击黄色区域自己摸索透明带的位置。<br>第五步，保存，这个不用多说吧。<br>至此，将图片替换回原来的文件夹即可。需要注意的是，刚编辑的9patch.图片不能直接拖到原apk中，而应回编译后再替换进去。</p>
+<h3 id="修改xml"><a href="#修改xml" class="headerlink" title="修改xml"></a>修改xml</h3><p>改字体，软件全局背景，汉化，去广告神马的都通过这种方式。我们常改的是layout，drawable，values目录下的xml文件，如果要改桌面插件，要去xml文件夹中修改。必要时也可尝试修改AndroidManifest.xml。下面是常见代码（分类非标准）</p>
+<h4 id="引用（-）"><a href="#引用（-）" class="headerlink" title="引用（@）"></a>引用（@）</h4><h5 id="引用自定义的资源"><a href="#引用自定义的资源" class="headerlink" title="引用自定义的资源"></a>引用自定义的资源</h5><p>形式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">@[package:]type/name</div></pre></td></tr></table></figure></p>
+<p>如 @android:text=”@string/hello”<br>这里使用”@”前缀引入对一个资源的引用，后面的string/hello就是我们自定义的资源。</p>
+<h5 id="引用系统资源"><a href="#引用系统资源" class="headerlink" title="引用系统资源"></a>引用系统资源</h5><p>形式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">@android:type/name</div></pre></td></tr></table></figure></p>
+<p>如 android:textColor=”@android:color/opaque_red” 指定package:android</p>
+<h5 id="引用主题属性"><a href="#引用主题属性" class="headerlink" title="引用主题属性"></a>引用主题属性</h5><p>形式 @android:type/name<br>即引用当前主题中的属性的值。</p>
+<h4 id="文本（text）"><a href="#文本（text）" class="headerlink" title="文本（text）"></a>文本（text）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">textColor 文本颜色</div><div class="line">textColorHighlight 被选中文字的底色，默认为蓝色</div><div class="line">textColorHint 提示信息文字的颜色，默认为灰色。与hint一起使用</div><div class="line">textColorLink 文字链接的颜色</div><div class="line">textScaleX 设置文字之间间隔，默认为1.0f</div><div class="line">textSize 文字大小</div><div class="line">textStyle 字形</div><div class="line">typeface 文本字体</div><div class="line">height 文本区域的高度</div><div class="line">maxHeight 文本区域的最大高度</div><div class="line">width 文本区域的宽度</div><div class="line">lines 文本的行数</div></pre></td></tr></table></figure>
+<h4 id="视图（view）"><a href="#视图（view）" class="headerlink" title="视图（view）"></a>视图（view）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">background 背景色/背景图片（@null 透明）</div><div class="line">clickable 是否响应点击事件</div><div class="line">focusable 是否获得焦点</div><div class="line">minHeight 视图最小高度 </div><div class="line">minWidth 视图最小宽度</div><div class="line">padding 上下左右的边距</div><div class="line">scrollbar 滚动条（none 隐藏，horizontal 水平，vertical 垂直）</div><div class="line">tag 文本标签</div><div class="line">visibility 是否显示View（visible 默认值，显示；invisible 不显示，但是仍然占用空间；gone 不显示，不占用空间）</div></pre></td></tr></table></figure>
+<h4 id="布局（layout）"><a href="#布局（layout）" class="headerlink" title="布局（layout）"></a>布局（layout）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">LinearLayout 线性布局</div><div class="line">FrameLayout 单帧布局</div><div class="line">RelativeLayout 相对布局</div><div class="line">AbsoluteLayout 绝对布局</div><div class="line">TableLayout 表格布局</div><div class="line">layout_width 宽度</div><div class="line">layout_height 高度</div><div class="line">fill_patent 布满屏幕</div><div class="line">wrap_content 适合大小</div><div class="line">foreground 前景</div><div class="line">background 背景</div><div class="line">gravity 位置（center_vertical 居中；top 顶部，默认；bottom 底部）</div><div class="line">orientation 定向（horizontal 水平，vertical 垂直）</div></pre></td></tr></table></figure>
+<h4 id="主题（theme）"><a href="#主题（theme）" class="headerlink" title="主题（theme）"></a>主题（theme）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">Theme.Dialog 对话框模式</div><div class="line">Theme.NoTitleBar 无标题栏</div><div class="line">Theme.NoTitleBar.Fullscreen 无标题栏，全屏</div><div class="line">Theme.Light 白色背景</div><div class="line">Theme.Light.NoTitleBar 白色背景，无标题栏</div><div class="line">Theme.Light.NoTitleBar.Fullscreen 白色背景，无标题栏，全屏</div><div class="line">Theme.Black 黑色背景</div><div class="line">Theme.Black.NoTitleBar 黑色背景并，无标题栏</div><div class="line">Theme.Black.NoTitleBar.Fullscreen 黑色背景，无标题栏，全屏</div><div class="line">Theme.Wallpaper 桌面背景</div><div class="line">Theme.Wallpaper.NoTitleBar 桌面背景，无标题栏</div><div class="line">Theme.Wallpaper.NoTitleBar.Fullscreen 桌面背景，无标题栏，全屏</div><div class="line">Theme.Translucent 半透明效果</div><div class="line">Theme.Translucent.NoTitleBar 半透明，无标题栏</div><div class="line">Theme.Translucent.NoTitleBar.Fullscreen 半透明效果，无标题栏，全屏</div><div class="line">Theme.Panel 面板风格显示</div><div class="line">Theme.Light.Panel 平板风格显示</div></pre></td></tr></table></figure>
+<h4 id="颜色（color）"><a href="#颜色（color）" class="headerlink" title="颜色（color）"></a>颜色（color）</h4><p>1) @color/×× 引用自定义的颜色，一般在res/values/colors.xml中<br>2) @android:color/×× 引用系统颜色<br>3) #×××××××× #后一共8个字符，由0~9，a~f组成。前两位是透明度，00表示全透明，ff表示不透明。后6位是RRGGBB，R红G绿B蓝，000000为白，ffffff为黑</p>
+<h4 id="单位"><a href="#单位" class="headerlink" title="单位"></a>单位</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">px 像素点</div><div class="line">in 英寸</div><div class="line">mm 毫米</div><div class="line">pt 磅，1/72 英寸</div><div class="line">dp 一个基于density的抽象单位，如果一个160dpi的屏幕，1dp=1px</div><div class="line">dip 等同于dp</div><div class="line">sp 同dp相似，但还会根据用户的字体大小偏好来缩放。</div></pre></td></tr></table></figure>
+<p>注意：sp一般是文本的单位，dip最常用</p>
 
       
     </div>
@@ -340,6 +393,14 @@
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/反编译APK/" rel="tag">#反编译APK</a>
+          
+            <a href="/tags/安卓逆向/" rel="tag">#安卓逆向</a>
+          
+        </div>
       
 
       
@@ -454,7 +515,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -508,7 +569,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#文件功能概述"><span class="nav-number">1.</span> <span class="nav-text">文件功能概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#assets文件夹"><span class="nav-number">1.1.</span> <span class="nav-text">assets文件夹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#res-文件夹"><span class="nav-number">1.2.</span> <span class="nav-text">res 文件夹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#smali"><span class="nav-number">1.3.</span> <span class="nav-text">smali</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AndroidManifest-xml"><span class="nav-number">1.4.</span> <span class="nav-text">AndroidManifest.xml</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#功能细述"><span class="nav-number">2.</span> <span class="nav-text">功能细述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#res目录浅说"><span class="nav-number">2.1.</span> <span class="nav-text">res目录浅说</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#anim文件夹"><span class="nav-number">2.1.1.</span> <span class="nav-text">anim文件夹</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#drawable文件夹"><span class="nav-number">2.1.2.</span> <span class="nav-text">drawable文件夹</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#color文件夹"><span class="nav-number">2.1.3.</span> <span class="nav-text">color文件夹</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#menu文件夹"><span class="nav-number">2.1.4.</span> <span class="nav-text">menu文件夹</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#layout文件夹"><span class="nav-number">2.1.5.</span> <span class="nav-text">layout文件夹</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#values文件夹"><span class="nav-number">2.1.6.</span> <span class="nav-text">values文件夹</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#raw文件夹"><span class="nav-number">2.1.7.</span> <span class="nav-text">raw文件夹</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#xml文件夹"><span class="nav-number">2.1.8.</span> <span class="nav-text">xml文件夹</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移动端APP测试步骤"><span class="nav-number">3.</span> <span class="nav-text">移动端APP测试步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#修改图片"><span class="nav-number">3.1.</span> <span class="nav-text">修改图片</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍-9patch"><span class="nav-number">3.1.1.</span> <span class="nav-text">介绍 9patch</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#将png转化为9-png步骤如下"><span class="nav-number">3.1.2.</span> <span class="nav-text">将png转化为9.png步骤如下</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改xml"><span class="nav-number">3.2.</span> <span class="nav-text">修改xml</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#引用（-）"><span class="nav-number">3.2.1.</span> <span class="nav-text">引用（@）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#引用自定义的资源"><span class="nav-number">3.2.1.1.</span> <span class="nav-text">引用自定义的资源</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#引用系统资源"><span class="nav-number">3.2.1.2.</span> <span class="nav-text">引用系统资源</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#引用主题属性"><span class="nav-number">3.2.1.3.</span> <span class="nav-text">引用主题属性</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文本（text）"><span class="nav-number">3.2.2.</span> <span class="nav-text">文本（text）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#视图（view）"><span class="nav-number">3.2.3.</span> <span class="nav-text">视图（view）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#布局（layout）"><span class="nav-number">3.2.4.</span> <span class="nav-text">布局（layout）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#主题（theme）"><span class="nav-number">3.2.5.</span> <span class="nav-text">主题（theme）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#颜色（color）"><span class="nav-number">3.2.6.</span> <span class="nav-text">颜色（color）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#单位"><span class="nav-number">3.2.7.</span> <span class="nav-text">单位</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>

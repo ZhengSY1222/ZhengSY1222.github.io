@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/01/03/常见漏洞测试流程案例之账号注册、密码找回/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="账号注册唯一身份标识(非自增ID，如手机号，用户名等)重复注册漏洞编号：WooYun-2012-13986url：http://wooyun.jozxing.cc/static/bugs/wooyun-2012-013986.html唯一身份标识可以重复注册，会导致劫持前人的ID；如一个网站是以username作为唯一身份标识，当可以注册一个重复的username时候，进入个人空间会导致查询出错等">
-<meta property="og:updated_time" content="2017-01-03T08:24:45.941Z">
+<meta property="og:updated_time" content="2017-01-03T08:36:02.589Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="常见漏洞测试流程案例之账号注册、密码找回">
 <meta name="twitter:description" content="账号注册唯一身份标识(非自增ID，如手机号，用户名等)重复注册漏洞编号：WooYun-2012-13986url：http://wooyun.jozxing.cc/static/bugs/wooyun-2012-013986.html唯一身份标识可以重复注册，会导致劫持前人的ID；如一个网站是以username作为唯一身份标识，当可以注册一个重复的username时候，进入个人空间会导致查询出错等">
@@ -317,7 +317,7 @@
       
 
       
-        <h2 id="账号注册"><a href="#账号注册" class="headerlink" title="账号注册"></a>账号注册</h2><h3 id="唯一身份标识-非自增ID，如手机号，用户名等-重复注册"><a href="#唯一身份标识-非自增ID，如手机号，用户名等-重复注册" class="headerlink" title="唯一身份标识(非自增ID，如手机号，用户名等)重复注册"></a>唯一身份标识(非自增ID，如手机号，用户名等)重复注册</h3><p>漏洞编号：WooYun-2012-13986<br>url：<a href="http://wooyun.jozxing.cc/static/bugs/wooyun-2012-013986.html" target="_blank" rel="external">http://wooyun.jozxing.cc/static/bugs/wooyun-2012-013986.html</a><br>唯一身份标识可以重复注册，会导致劫持前人的ID；如一个网站是以username作为唯一身份标识，当可以注册一个重复的username时候，进入个人空间会导致查询出错等问题。</p>
+        <h2 id="账号注册"><a href="#账号注册" class="headerlink" title="账号注册"></a>账号注册</h2><h3 id="唯一身份标识-非自增ID，如手机号，用户名等-重复注册"><a href="#唯一身份标识-非自增ID，如手机号，用户名等-重复注册" class="headerlink" title="唯一身份标识(非自增ID，如手机号，用户名等)重复注册"></a>唯一身份标识(非自增ID，如手机号，用户名等)重复注册</h3><p>漏洞编号：WooYun-2012-13986<br>url：<a href="http://wooyun.jozxing.cc/static/bugs/wooyun-2012-013986.html" target="_blank" rel="external">http://wooyun.jozxing.cc/static/bugs/wooyun-2012-013986.html</a><br>唯一身份标识可以重复注册，会导致劫持前人的ID；如一个网站是以username作为唯一身份标识，当可以注册一个重复的username时候，进入个人空间会导致查询出错等问题。<br><a id="more"></a></p>
 <h3 id="没严格验证身份信息"><a href="#没严格验证身份信息" class="headerlink" title="没严格验证身份信息"></a>没严格验证身份信息</h3><p>漏洞编号：WooYun-2014-87354<br>url：<a href="http://wooyun.jozxing.cc/static/bugs/wooyun-2014-087354.html" target="_blank" rel="external">http://wooyun.jozxing.cc/static/bugs/wooyun-2014-087354.html</a><br>这种情况分为两种，第一种完全没有任意判断（不需要验证码和激活链接的）；第二种是需要激活账号的；第一种大家都知道，下面说说第二种，a用户用自己邮箱注册一个账号，然后拿到激活链接，然后在用别人的邮箱注册一次，然后再访问激活链接，这样情况严格来说是属于逻辑缺陷，但是账号注册这块挺重要的，就写在这里了。</p>
 <h3 id="垃圾账号注册"><a href="#垃圾账号注册" class="headerlink" title="垃圾账号注册"></a>垃圾账号注册</h3><p>漏洞编号：WooYun-2013-34225<br>url：<a href="http://wooyun.jozxing.cc/static/bugs/wooyun-2013-034225.html" target="_blank" rel="external">http://wooyun.jozxing.cc/static/bugs/wooyun-2013-034225.html</a><br>在不判断用户身份信息以及没有验证码等限制的时候会导致垃圾账号批量注册，如以上漏洞，没有验证码，写个脚本跑一下就可以注册很多用户，可以用于恶意推销。</p>
 <h2 id="密码找回"><a href="#密码找回" class="headerlink" title="密码找回"></a>密码找回</h2><h3 id="验证身份信息的验证码存储在客户端；"><a href="#验证身份信息的验证码存储在客户端；" class="headerlink" title="验证身份信息的验证码存储在客户端；"></a>验证身份信息的验证码存储在客户端；</h3><p>漏洞编号：WooYun-2016-169802<br>url：<a href="http://wooyun.jozxing.cc/static/bugs/wooyun-2016-0169802.html" target="_blank" rel="external">http://wooyun.jozxing.cc/static/bugs/wooyun-2016-0169802.html</a><br>手机邮箱找回验证码时，验证码返回到客户端的时候，可导致任意用户密码重置；如a用户在b.com找回一个不属于他的账号，手机号找回密码会发送验证码到那个手机号上，如果验证码也返回到客户端的话，a用户可以直接用该验证码重置那个账号的密码。</p>
@@ -461,7 +461,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
