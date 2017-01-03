@@ -1,0 +1,798 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="1.pc上使用adb进行端口转发命令：adb forward tcp:31415 tcp:31415
+adb connect 127.0.0.1:62001(安卓模拟器上需要先连)2.在测试设备（手机或者平板）上打开drozer， 进入“drozer  server”，点击使处于Enable状态3.然后pc端
+E:\tools\移动端\drozer&amp;gt;drozer.bat console co">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Drozer使用及相关命令">
+<meta property="og:url" content="http://yoursite.com/2017/01/02/Drozer使用及相关命令/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1.pc上使用adb进行端口转发命令：adb forward tcp:31415 tcp:31415
+adb connect 127.0.0.1:62001(安卓模拟器上需要先连)2.在测试设备（手机或者平板）上打开drozer， 进入“drozer  server”，点击使处于Enable状态3.然后pc端
+E:\tools\移动端\drozer&amp;gt;drozer.bat console co">
+<meta property="og:updated_time" content="2017-01-02T13:08:10.327Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Drozer使用及相关命令">
+<meta name="twitter:description" content="1.pc上使用adb进行端口转发命令：adb forward tcp:31415 tcp:31415
+adb connect 127.0.0.1:62001(安卓模拟器上需要先连)2.在测试设备（手机或者平板）上打开drozer， 进入“drozer  server”，点击使处于Enable状态3.然后pc端
+E:\tools\移动端\drozer&amp;gt;drozer.bat console co">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/01/02/Drozer使用及相关命令/"/>
+
+
+  <title> Drozer使用及相关命令 | Hexo </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hexo</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Drozer使用及相关命令
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-01-02T21:07:47+08:00" content="2017-01-02">
+              2017-01-02
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/01/02/Drozer使用及相关命令/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/02/Drozer使用及相关命令/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>1.pc上使用adb进行端口转发<br>命令：<br>adb forward tcp:31415 tcp:31415</p>
+<p>adb connect 127.0.0.1:62001(安卓模拟器上需要先连)<br>2.在测试设备（手机或者平板）上打开drozer， 进入“drozer  server”，点击使处于Enable状态<br>3.然后pc端</p>
+<p>E:\tools\移动端\drozer&gt;drozer.bat console connect<br>……<br>……<br>dz&gt;<br>正常情况进入如下界面，如果报错</p>
+<p>[Errno 10054]<br>重启一下即可<br>　一、安装与启动<br>　　1. 安装<br>　　第一步：从<a href="http://mwr.to/drozer下载Drozer" target="_blank" rel="external">http://mwr.to/drozer下载Drozer</a> (Windows Installer)<br>　　第二步：在Android设备中安装agent.apk<br>　　adb install agent.apk<br>　　2. 启动<br>　　第一步：在PC上使用adb进行端口转发，转发到Drozer使用的端口31415<br>　　adb forward tcp:31415 tcp:31415<br>　　第二步：在Android设备上开启Drozer Agent<br>　　选择embedded server-enable<br>　　第三步：在PC上开启Drozer console<br>　　drozer console connect<br>　　二、测试步骤<br>　　1.获取包名<br>　　dz&gt; run app.package.list -f sieve<br>　　com.mwr.example.sieve<br>　　2.获取应用的基本信息<br>　　run app.package.info -a com.mwr.example.sieve<br>　　3.确定攻击面<br>　　run app.package.attacksurface com.mwr.example.sieve<br>　　4.Activity<br>　　（1）获取activity信息<br>　　run app.activity.info -a com.mwr.example.sieve<br>　　（2）启动activity<br>　　run app.activity.start –component com.mwr.example.sieve<br>　　dz&gt; help app.activity.start<br>　　usage: run app.activity.start [-h] [–action ACTION] [–category CATEGORY]<br>　　[–component PACKAGE COMPONENT] [–data-uri DATA_URI]<br>　　[–extra TYPE KEY VALUE] [–flags FLAGS [FLAGS …]]<br>　　[–mimetype MIMETYPE]<br>　　5.Content Provider<br>　　（1）获取Content Provider信息<br>　　run app.provider.info -a com.mwr.example.sieve<br>　　（2）Content Providers（数据泄露）<br>　　先获取所有可以访问的Uri：<br>　　run scanner.provider.finduris -a com.mwr.example.sieve<br>　　获取各个Uri的数据：<br>　　run app.provider.query<br>　　content://com.mwr.example.sieve.DBContentProvider/Passwords/ –vertical<br>　　查询到数据说明存在漏洞<br>　　（3）Content Providers（SQL注入）<br>　　run app.provider.query content://com.mwr.example.sieve.DBContentProvider/Passwords/ –projection “‘“<br>　　run app.provider.query content://com.mwr.example.sieve.DBContentProvider/Passwords/ –selection “‘“<br>　　报错则说明存在SQL注入。<br>　　列出所有表：<br>　 　run app.provider.query content://com.mwr.example.sieve.DBContentProvider/Passwords/ –projection “<em> FROM SQLITE_MASTER WHERE type=’table’;–”<br>　　获取某个表（如Key）中的数据：<br>　　run app.provider.query content://com.mwr.example.sieve.DBContentProvider/Passwords/ –projection “</em> FROM Key;–”<br>　　（4）同时检测SQL注入和目录遍历<br>　　run scanner.provider.injection -a com.mwr.example.sieve<br>　　run scanner.provider.traversal -a com.mwr.example.sieve<br>　　6 intent组件触发（拒绝服务、权限提升）<br>　　利用intent对组件的触发一般有两类漏洞，一类是拒绝服务，一类的权限提升。拒绝服务危害性比较低，更多的只是影响应用服务质量；而权限提升将使得没有该权限的应用可以通过intent触发拥有该权限的应用，从而帮助其完成越权行为。<br>　　1.查看暴露的广播组件信息：<br>　　run app.broadcast.info -a com.package.name　　获取broadcast receivers信息<br>　　run app.broadcast.send –component 包名 –action android.intent.action.XXX<br>　　2.尝试拒绝服务攻击检测，向广播组件发送不完整intent（空action或空extras）：<br>　　run app.broadcast.send 通过intent发送broadcast receiver<br>　　(1)   空action<br>　　run app.broadcast.send –component 包名 ReceiverName<br>　　run app.broadcast.send –component 包名 ReceiverName<br>　　(2)   空extras<br>　　run app.broadcast.send –action android.intent.action.XXX<br>　　3.尝试权限提升<br>　 　权限提升其实和拒绝服务很类似，只不过目的变成构造更为完整、更能满足程序逻辑的intent。由于activity一般多于用户交互有关，所以基 于intent的权限提升更多针对broadcast receiver和service。与drozer相关的权限提升工具，可以参考IntentFuzzer，其结合了drozer以及hook技术，采用 feedback策略进行fuzzing。以下仅仅列举drozer发送intent的命令：<br>　　（1）获取service详情<br>　　run app.service.info -a com.mwr.example.sieve<br>　　不使用drozer启动service<br>　　am startservice –n 包名/service名<br>　　（2）权限提升<br>　 　run app.service.start –action com.test.vulnerability.SEND_SMS –extra string dest 11111 –extra string text 1111 –extra string OP SEND_SMS<br>　　7.文件操作<br>　　列出指定文件路径里全局可写/可读的文件<br>　　run scanner.misc.writablefiles –privileged /data/data/com.sina.weibo<br>　　run scanner.misc.readablefiles –privileged /data/data/com.sina.weibo<br>　　run app.broadcast.send –component 包名 –action android.intent.action.XXX<br>　　8.其它模块<br>　　shell.start 在设备上开启一个交互shell<br>　　tools.file.upload / tools.file.download 上传/下载文件到设备<br>　　tools.setup.busybox / tools.setup.minimalsu 安装可用的二进制文件</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/01/02/反编译APK后得到的几个文件和文件夹/" rel="next" title="反编译APK后得到的几个文件和文件夹">
+                <i class="fa fa-chevron-left"></i> 反编译APK后得到的几个文件和文件夹
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/03/常见漏洞测试流程案例之账号注册、密码找回/" rel="prev" title="常见漏洞测试流程案例之账号注册、密码找回">
+                常见漏洞测试流程案例之账号注册、密码找回 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/01/02/Drozer使用及相关命令/"
+           data-title="Drozer使用及相关命令" data-url="http://yoursite.com/2017/01/02/Drozer使用及相关命令/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="不倒翁小郑" />
+          <p class="site-author-name" itemprop="name">不倒翁小郑</p>
+          <p class="site-description motion-element" itemprop="description">无需言，做自己！</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ZhengSY1222" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.dadongge.ga" title="大栋哥" target="_blank">大栋哥</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">不倒翁小郑</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"akiss-zsy"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = false;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = decodeURIComponent(data.url);
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title >= 0 || index_content >= 0 ){
+                                isMatch = true;
+								if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            } 
+							
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

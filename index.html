@@ -272,6 +272,558 @@
             
               
                 
+                <a class="post-title-link" href="/2017/01/03/常见漏洞测试流程案例之账号注册、密码找回/" itemprop="url">
+                  常见漏洞测试流程案例之账号注册、密码找回
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-01-03T16:12:38+08:00" content="2017-01-03">
+              2017-01-03
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/01/03/常见漏洞测试流程案例之账号注册、密码找回/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/03/常见漏洞测试流程案例之账号注册、密码找回/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="账号注册"><a href="#账号注册" class="headerlink" title="账号注册"></a>账号注册</h2><h3 id="唯一身份标识-非自增ID，如手机号，用户名等-重复注册"><a href="#唯一身份标识-非自增ID，如手机号，用户名等-重复注册" class="headerlink" title="唯一身份标识(非自增ID，如手机号，用户名等)重复注册"></a>唯一身份标识(非自增ID，如手机号，用户名等)重复注册</h3><p>漏洞编号：WooYun-2012-13986<br>url：<a href="http://wooyun.jozxing.cc/static/bugs/wooyun-2012-013986.html" target="_blank" rel="external">http://wooyun.jozxing.cc/static/bugs/wooyun-2012-013986.html</a><br>唯一身份标识可以重复注册，会导致劫持前人的ID；如一个网站是以username作为唯一身份标识，当可以注册一个重复的username时候，进入个人空间会导致查询出错等问题。</p>
+<h3 id="没严格验证身份信息"><a href="#没严格验证身份信息" class="headerlink" title="没严格验证身份信息"></a>没严格验证身份信息</h3><p>漏洞编号：WooYun-2014-87354<br>url：<a href="http://wooyun.jozxing.cc/static/bugs/wooyun-2014-087354.html" target="_blank" rel="external">http://wooyun.jozxing.cc/static/bugs/wooyun-2014-087354.html</a><br>这种情况分为两种，第一种完全没有任意判断（不需要验证码和激活链接的）；第二种是需要激活账号的；第一种大家都知道，下面说说第二种，a用户用自己邮箱注册一个账号，然后拿到激活链接，然后在用别人的邮箱注册一次，然后再访问激活链接，这样情况严格来说是属于逻辑缺陷，但是账号注册这块挺重要的，就写在这里了。</p>
+<h3 id="垃圾账号注册"><a href="#垃圾账号注册" class="headerlink" title="垃圾账号注册"></a>垃圾账号注册</h3><p>漏洞编号：WooYun-2013-34225<br>url：<a href="http://wooyun.jozxing.cc/static/bugs/wooyun-2013-034225.html" target="_blank" rel="external">http://wooyun.jozxing.cc/static/bugs/wooyun-2013-034225.html</a><br>在不判断用户身份信息以及没有验证码等限制的时候会导致垃圾账号批量注册，如以上漏洞，没有验证码，写个脚本跑一下就可以注册很多用户，可以用于恶意推销。</p>
+<h2 id="密码找回"><a href="#密码找回" class="headerlink" title="密码找回"></a>密码找回</h2><h3 id="验证身份信息的验证码存储在客户端；"><a href="#验证身份信息的验证码存储在客户端；" class="headerlink" title="验证身份信息的验证码存储在客户端；"></a>验证身份信息的验证码存储在客户端；</h3><p>漏洞编号：WooYun-2016-169802<br>url：<a href="http://wooyun.jozxing.cc/static/bugs/wooyun-2016-0169802.html" target="_blank" rel="external">http://wooyun.jozxing.cc/static/bugs/wooyun-2016-0169802.html</a><br>手机邮箱找回验证码时，验证码返回到客户端的时候，可导致任意用户密码重置；如a用户在b.com找回一个不属于他的账号，手机号找回密码会发送验证码到那个手机号上，如果验证码也返回到客户端的话，a用户可以直接用该验证码重置那个账号的密码。</p>
+<h3 id="验证码爆破；"><a href="#验证码爆破；" class="headerlink" title="验证码爆破；"></a>验证码爆破；</h3><p>漏洞编号：WooYun-2016-202426<br>url：<a href="http://wooyun.jozxing.cc/static/bugs/wooyun-2016-0202426.html" target="_blank" rel="external">http://wooyun.jozxing.cc/static/bugs/wooyun-2016-0202426.html</a><br>现在网站都是基于验证码来判断用户身份的，这种方式是正确的，但是实现的过程可能会导致很多严重的安全问题，如验证码的有效期、验证码错误多少次会导致验证码过期，下面说的这种情况就是没有做任何处理的，比如手机密码找回，返回4位数的验证码且无任何限制，这种情况如上面漏洞案例所说的一样，可以爆破出验证码。</p>
+<h3 id="本地验证；"><a href="#本地验证；" class="headerlink" title="本地验证；"></a>本地验证；</h3><p>漏洞编号：WooYun-2016-207115<br>url：<a href="http://wooyun.jozxing.cc/static/bugs/wooyun-2016-0207115.html" target="_blank" rel="external">http://wooyun.jozxing.cc/static/bugs/wooyun-2016-0207115.html</a><br>很多密码找回都是依靠返回的request的json的某个字段值来判断是否可以重置密码，然后再进行重置密码，这种情况就是本地验证，也就是说我们重置密码的过程，把返回包修改一下就可以重置密码了。这种情况出现过很多，都是没有经过二次判断的。<br>感谢乌云的案例。</p>
+<p><strong><em>本文转载自：</em></strong><a href="http://zone.secevery.com/?/article/370" target="_blank" rel="external">http://zone.secevery.com/?/article/370</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/01/02/Drozer使用及相关命令/" itemprop="url">
+                  Drozer使用及相关命令
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-01-02T21:07:47+08:00" content="2017-01-02">
+              2017-01-02
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/01/02/Drozer使用及相关命令/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/02/Drozer使用及相关命令/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1.pc上使用adb进行端口转发<br>命令：<br>adb forward tcp:31415 tcp:31415</p>
+<p>adb connect 127.0.0.1:62001(安卓模拟器上需要先连)<br>2.在测试设备（手机或者平板）上打开drozer， 进入“drozer  server”，点击使处于Enable状态<br>3.然后pc端</p>
+<p>E:\tools\移动端\drozer&gt;drozer.bat console connect<br>……<br>……<br>dz&gt;<br>正常情况进入如下界面，如果报错</p>
+<p>[Errno 10054]<br>重启一下即可<br>　一、安装与启动<br>　　1. 安装<br>　　第一步：从<a href="http://mwr.to/drozer下载Drozer" target="_blank" rel="external">http://mwr.to/drozer下载Drozer</a> (Windows Installer)<br>　　第二步：在Android设备中安装agent.apk<br>　　adb install agent.apk<br>　　2. 启动<br>　　第一步：在PC上使用adb进行端口转发，转发到Drozer使用的端口31415<br>　　adb forward tcp:31415 tcp:31415<br>　　第二步：在Android设备上开启Drozer Agent<br>　　选择embedded server-enable<br>　　第三步：在PC上开启Drozer console<br>　　drozer console connect<br>　　二、测试步骤<br>　　1.获取包名<br>　　dz&gt; run app.package.list -f sieve<br>　　com.mwr.example.sieve<br>　　2.获取应用的基本信息<br>　　run app.package.info -a com.mwr.example.sieve<br>　　3.确定攻击面<br>　　run app.package.attacksurface com.mwr.example.sieve<br>　　4.Activity<br>　　（1）获取activity信息<br>　　run app.activity.info -a com.mwr.example.sieve<br>　　（2）启动activity<br>　　run app.activity.start –component com.mwr.example.sieve<br>　　dz&gt; help app.activity.start<br>　　usage: run app.activity.start [-h] [–action ACTION] [–category CATEGORY]<br>　　[–component PACKAGE COMPONENT] [–data-uri DATA_URI]<br>　　[–extra TYPE KEY VALUE] [–flags FLAGS [FLAGS …]]<br>　　[–mimetype MIMETYPE]<br>　　5.Content Provider<br>　　（1）获取Content Provider信息<br>　　run app.provider.info -a com.mwr.example.sieve<br>　　（2）Content Providers（数据泄露）<br>　　先获取所有可以访问的Uri：<br>　　run scanner.provider.finduris -a com.mwr.example.sieve<br>　　获取各个Uri的数据：<br>　　run app.provider.query<br>　　content://com.mwr.example.sieve.DBContentProvider/Passwords/ –vertical<br>　　查询到数据说明存在漏洞<br>　　（3）Content Providers（SQL注入）<br>　　run app.provider.query content://com.mwr.example.sieve.DBContentProvider/Passwords/ –projection “‘“<br>　　run app.provider.query content://com.mwr.example.sieve.DBContentProvider/Passwords/ –selection “‘“<br>　　报错则说明存在SQL注入。<br>　　列出所有表：<br>　 　run app.provider.query content://com.mwr.example.sieve.DBContentProvider/Passwords/ –projection “<em> FROM SQLITE_MASTER WHERE type=’table’;–”<br>　　获取某个表（如Key）中的数据：<br>　　run app.provider.query content://com.mwr.example.sieve.DBContentProvider/Passwords/ –projection “</em> FROM Key;–”<br>　　（4）同时检测SQL注入和目录遍历<br>　　run scanner.provider.injection -a com.mwr.example.sieve<br>　　run scanner.provider.traversal -a com.mwr.example.sieve<br>　　6 intent组件触发（拒绝服务、权限提升）<br>　　利用intent对组件的触发一般有两类漏洞，一类是拒绝服务，一类的权限提升。拒绝服务危害性比较低，更多的只是影响应用服务质量；而权限提升将使得没有该权限的应用可以通过intent触发拥有该权限的应用，从而帮助其完成越权行为。<br>　　1.查看暴露的广播组件信息：<br>　　run app.broadcast.info -a com.package.name　　获取broadcast receivers信息<br>　　run app.broadcast.send –component 包名 –action android.intent.action.XXX<br>　　2.尝试拒绝服务攻击检测，向广播组件发送不完整intent（空action或空extras）：<br>　　run app.broadcast.send 通过intent发送broadcast receiver<br>　　(1)   空action<br>　　run app.broadcast.send –component 包名 ReceiverName<br>　　run app.broadcast.send –component 包名 ReceiverName<br>　　(2)   空extras<br>　　run app.broadcast.send –action android.intent.action.XXX<br>　　3.尝试权限提升<br>　 　权限提升其实和拒绝服务很类似，只不过目的变成构造更为完整、更能满足程序逻辑的intent。由于activity一般多于用户交互有关，所以基 于intent的权限提升更多针对broadcast receiver和service。与drozer相关的权限提升工具，可以参考IntentFuzzer，其结合了drozer以及hook技术，采用 feedback策略进行fuzzing。以下仅仅列举drozer发送intent的命令：<br>　　（1）获取service详情<br>　　run app.service.info -a com.mwr.example.sieve<br>　　不使用drozer启动service<br>　　am startservice –n 包名/service名<br>　　（2）权限提升<br>　 　run app.service.start –action com.test.vulnerability.SEND_SMS –extra string dest 11111 –extra string text 1111 –extra string OP SEND_SMS<br>　　7.文件操作<br>　　列出指定文件路径里全局可写/可读的文件<br>　　run scanner.misc.writablefiles –privileged /data/data/com.sina.weibo<br>　　run scanner.misc.readablefiles –privileged /data/data/com.sina.weibo<br>　　run app.broadcast.send –component 包名 –action android.intent.action.XXX<br>　　8.其它模块<br>　　shell.start 在设备上开启一个交互shell<br>　　tools.file.upload / tools.file.download 上传/下载文件到设备<br>　　tools.setup.busybox / tools.setup.minimalsu 安装可用的二进制文件</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/01/02/反编译APK后得到的几个文件和文件夹/" itemprop="url">
+                  反编译APK后得到的几个文件和文件夹
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-01-02T21:06:30+08:00" content="2017-01-02">
+              2017-01-02
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/01/02/反编译APK后得到的几个文件和文件夹/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/02/反编译APK后得到的几个文件和文件夹/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1。 assets 文件夹<br>此文件夹可以存放资源文件。至于是神马资源文件，怎么读取，这些我们就不用深究了，因为不常改。<br>2。 res 文件夹<br>主要用来存放资源。此文件夹下可以创建子文件，常见的有：<br>anim 动画<br>drawable 图片<br>color 颜色<br>menu 菜单<br>layout 布局<br>values 常量值<br>xml 任意xml文件<br>我们修改apk时，一般就在这里修改。比如汉化，改名称，去广告，改字体颜色，大小神马的。<br>3。smali<br>里面主要是dex文件反编译得到的smali文件。不会java的改不起。顶多搜几个关键词汉化一下。值得注意的是，汉化时不能直接输入汉字，而应输入对应的十六进制代码。<br>4。AndroidManifest.xml<br>此文件是apk中最重要的文件之一。它是apk的全局配置文件，提供了android系统所需要的关于该应用的必要信息。</p>
+<p>res目录浅说：<br>1 anim文件夹<br>    后缀名为.xml。动画文件都放在这里。<br>2 drawable文件夹<br>用于存放图片资源，图片或者xml。<br>(1) 图片<br>图片格式：png，9.png，jpg，gif。<br>注意：9.png是一种特殊的png格式，与一般的png格式有区别！很多人在改完图片后将两种格式混淆，导致回编译失败。后面有制作9.png格式图片的方法。<br>(2) xml<br>xml文件通常为自定义的形状shape或图片选择器类selector似的东西，就是不同状态下不同的图片，用于设置background什么的。<br>(3) drawable文件夹为了对屏幕的适配，<br>①对分辨率笼统的分：名字可以为：drawable-ldpi<br>drawable-mdpi<br>drawable-hdpi<br>drawable-xhdp<br>drawable-nodpi<br>drawable-tvdpi<br>分辨率依次由高到低<br>②具体到某一分辨率：drawable-分辨率，比如：drawable-1280x720<br>③如果有横竖屏的区别，则命名为：drawable-land/port-mdpi，<br>3 color文件夹<br>用于存放color列表，和drawable的xml一样，表示不同状态下的不同颜色<br>4 menu文件夹<br>菜单资源文件夹。<br>5 layout文件夹<br>布局文件夹。此文件夹的名字也是可以起到屏幕适配的功能的。<br>①横竖屏：layout-land/port<br>②分辨率：layout-1280x720<br>6 values文件夹<br>存放常量值的文件夹。里面常见的xml文件为：<br>arrays.xml ：  资源数组.<br>colors.xml :   颜色值<br>dimens.xml ：  像素值.<br>strings.xml ： 字符串值.<br>styles.xml ：  样式值.<br>此文件夹，也有屏幕适配作用。比如：dimens在不同分辨率下的值。同样的是加-1280x720这样的后缀。<br>对于strings，values文件夹有各种语言的版本对应。默认为英文。中文的文件夹名字应该是：<br>values-zh-rCN 简体中文<br>values-zh-rTW 繁体中文<br>7 raw文件夹<br>存放不需要系统编译成二进制的文件，例如字体文件等，同assets文件夹类似。<br>8 xml文件夹<br>存放任意的xml文件。具体看名字。</p>
+<p>改apk时，我们主要改两种，即图片和xml。先讲图片：<br>改图片最简单了，注意好格式，分辨率即可。但有一点需注意，就是9.png和png格式图片的区别。许多人没注意这点，导致回编译总是失败。下面讲9.png格式图片的制作。<br>1 介绍 9patch<br>NinePatch.图片以*.9.png结尾，和普通图片的区别是四周多了一个边框<br>左边那条黑色线代表图片垂直拉伸的区域，上边的那条黑色线代表水平拉伸区域，右边的黑色线代表内容绘制的垂直区域，下边的黑色线代表内容绘制的水平区域，右边和下边的线是可选的，左边和上边的线不能省略。<br>采用NinePatch.图片做背景，可使背景随着内容的拉伸（缩小）而拉伸（缩小）<br>总之，通俗的将，9patch格式的图片就是有些部位能伸缩，有些部位不能的特殊png格式图片。<br>2 将png转化为9.png步骤如下<br>第一步，下载9妹工具，一楼工具包里有，双击打开draw9patch.bat，将图片拖到软件界面编辑。<br>第二步，勾选软件下面的三个选项，全选就对了。<br>第三步，把鼠标放到图片中央，此时你会看到图片四周有1像素的透明带<br>第四步，在左边和上边的透明带上各画一条黑线（鼠标拖动即可）<br>注意：当图片过大时上边的透明带会被黄色的提示框遮住，此时只能多点击黄色区域自己摸索透明带的位置。<br>第五步，保存，这个不用多说吧。<br>至此，将图片替换回原来的文件夹即可。需要注意的是，刚编辑的9patch.图片不能直接拖到原apk中，而应回编译后再替换进去。</p>
+<p>再说修改xml。改字体，软件全局背景，汉化，去广告神马的都通过这种方式。我们常改的是layout，drawable，values目录下的xml文件，如果要改桌面插件，要去xml文件夹中修改。必要时也可尝试修改AndroidManifest.xml。下面是常见代码（分类非标准）<br>1 引用（@）<br>1)引用自定义的资源<br>形式 @[package:]type/name<br>如 android:text=”@string/hello”<br>这里使用”@”前缀引入对一个资源的引用，后面的string/hello就是我们自定义的资源。<br>2) 引用系统资源<br>形式 @android:type/name<br>如 android:textColor=”@android:color/opaque_red” 指定package:android<br>3) 引用主题属性<br>形式 ？android:type/name<br>即引用当前主题中的属性的值。<br>2 文本（text）<br>textColor 文本颜色<br>textColorHighlight 被选中文字的底色，默认为蓝色<br>textColorHint 提示信息文字的颜色，默认为灰色。与hint一起使用<br>textColorLink 文字链接的颜色<br>textScaleX 设置文字之间间隔，默认为1.0f<br>textSize 文字大小<br>textStyle 字形<br>typeface 文本字体<br>height 文本区域的高度<br>maxHeight 文本区域的最大高度<br>width 文本区域的宽度<br>lines 文本的行数<br>3 视图（view）<br>background 背景色/背景图片（@null 透明）<br>clickable 是否响应点击事件<br>focusable 是否获得焦点<br>minHeight 视图最小高度<br>minWidth 视图最小宽度<br>padding 上下左右的边距<br>scrollbar 滚动条（none 隐藏，horizontal 水平，vertical 垂直）<br>tag 文本标签<br>visibility 是否显示View（visible 默认值，显示；invisible 不显示，但是仍然占用空间；gone 不显示，不占用空间）<br>4 布局（layout）<br>LinearLayout 线性布局<br>FrameLayout 单帧布局<br>RelativeLayout 相对布局<br>AbsoluteLayout 绝对布局<br>TableLayout 表格布局<br>layout_width 宽度<br>layout_height 高度<br>fill_patent 布满屏幕<br>wrap_content 适合大小<br>foreground 前景<br>background 背景<br>gravity 位置（center_vertical 居中；top 顶部，默认；bottom 底部）<br>orientation 定向（horizontal 水平，vertical 垂直）<br>5 主题（theme）<br>Theme.Dialog 对话框模式<br>Theme.NoTitleBar 无标题栏<br>Theme.NoTitleBar.Fullscreen 无标题栏，全屏<br>Theme.Light 白色背景<br>Theme.Light.NoTitleBar 白色背景，无标题栏<br>Theme.Light.NoTitleBar.Fullscreen 白色背景，无标题栏，全屏<br>Theme.Black 黑色背景<br>Theme.Black.NoTitleBar 黑色背景并，无标题栏<br>Theme.Black.NoTitleBar.Fullscreen 黑色背景，无标题栏，全屏<br>Theme.Wallpaper 桌面背景<br>Theme.Wallpaper.NoTitleBar 桌面背景，无标题栏<br>Theme.Wallpaper.NoTitleBar.Fullscreen 桌面背景，无标题栏，全屏<br>Theme.Translucent 半透明效果<br>Theme.Translucent.NoTitleBar 半透明，无标题栏<br>Theme.Translucent.NoTitleBar.Fullscreen 半透明效果，无标题栏，全屏<br>Theme.Panel 面板风格显示<br>Theme.Light.Panel 平板风格显示<br>6 颜色（color）<br>1) @color/×× 引用自定义的颜色，一般在res/values/colors.xml中<br>2) @android:color/×× 引用系统颜色<br>3) #×××××××× #后一共8个字符，由0~9，a~f组成。前两位是透明度，00表示全透明，ff表示不透明。后6位是RRGGBB，R红G绿B蓝，000000为白，ffffff为黑<br>7 单位<br>px 像素点<br>in 英寸<br>mm 毫米<br>pt 磅，1/72 英寸<br>dp 一个基于density的抽象单位，如果一个160dpi的屏幕，1dp=1px<br>dip 等同于dp<br>sp 同dp相似，但还会根据用户的字体大小偏好来缩放。<br>注意：sp一般是文本的单位，dip最常用</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/01/02/adb-logcat命令查看并过滤android输出log/" itemprop="url">
+                  adb logcat命令查看并过滤android输出log
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-01-02T21:05:17+08:00" content="2017-01-02">
+              2017-01-02
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/01/02/adb-logcat命令查看并过滤android输出log/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/02/adb-logcat命令查看并过滤android输出log/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>cmd命令行中使用adb logcat命令查看Android系统和应用的log，dos窗口按ctrl+c中断输出log记录。<br>logcat日志中的优先级/tag标记：<br>android输出的每一条日志都有一个标记和优先级与其关联。<br>优先级是下面的字符，顺序是从低到高：<br>V — 明细 verbose(最低优先级)<br>D — 调试 debug<br>I — 信息 info<br>W — 警告 warn<br>E — 错误 error<br>F — 严重错误 fatal<br>S — 无记载 silent<br>标记是一个简短的字符串，用于标识原始消息的来源。如下是一个日志输出的消息，优先级是“D”，标记是“PowerManagerService”：<br>D/PowerManagerService( 305): onSensorChanged: light value: 306.0<br>使用logcat命令查看android日志输出：<br>adb logcat     //显示全部日志<br>adb logcat &gt; c:\test.log //将日志保存到文件test.log<br>根据tag标记和级别过滤日志输出：<br>仅输出标记为“ActivityManager”且优先级大于等于“Info”和标记为“PowerManagerService”并且优先级大于等于“Debug”的日志：<br>adb logcat ActivityManager:I PowerManagerService:D <em>:S<br>注：</em>:S用于设置所有标记的日志优先级为S，这样可以确保仅输出符合条件的日志。<br>adb logcat *:W   //显示所有优先级大于等于“warning”的日志<br>adb logcat -s PowerManagerService   //显示PowerManagerService的日志信息<br>Logcat命令列表：<br>-d 将日志显示在控制台后退出<br>-c 清理已存在的日志<br>-f <filename> 将日志输出到文件<br>adb logcat -f /sdcard/test.txt<br>-v <format>设置日志输入格式控制输出字段，默认的是brief格式<br>brief — 显示优先级/标记和原始进程的PID (默认格式)<br>process — 仅显示进程PID<br>tag — 仅显示优先级/标记<br>thread — 仅显示进程：线程和优先级/标记<br>raw — 显示原始的日志信息，没有其他的元数据字段<br>time — 显示日期，调用时间，优先级/标记，PID<br>long —显示所有的元数据字段并且用空行分隔消息内容<br>adb logcat -v thread   //使用 thread 输出格式<br>注意-v 选项中只能指定一种格式。<br>-b <buffer>加载一个可使用的日志缓冲区供查看，默认值是main。<br>radio — 查看包含在无线/电话相关的缓冲区消息<br>events — 查看事件相关的消息<br>main — 查看主缓冲区 (默认缓冲区)<br>adb logcat -b radio     //查看radio缓冲区</buffer></format></filename></p>
+<p>adb  push  pull   ：</p>
+<p>下载<br>D:>adb pull /data/ d:\data<br>第一个data是手机或模拟器目录<br>第二个data是PC的目录</p>
+<p>上传<br>adb push D:\file.txt  /system/temp/</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/01/02/Dorzer之环境配置/" itemprop="url">
+                  Dorzer之环境配置
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-01-02T20:52:43+08:00" content="2017-01-02">
+              2017-01-02
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/手机客户端测试/" itemprop="url" rel="index">
+                    <span itemprop="name">手机客户端测试</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/01/02/Dorzer之环境配置/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/02/Dorzer之环境配置/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1、在 PC 上使用 adb 进行端口转发，转发到 Drozer使用的端口 31415<br><img src="\images\android\adb\1-1.png" alt="image"><br>adb forward tcp:31415 tcp:31415</p>
+<p>2.问题一</p>
+<p>E:\tools\移动端\drozer&gt;drozer.bat console connect<br>出现如下错误<br>If this error persists, specify the path in the ~/.drozer_config file:</p>
+<pre><code>[executables] 
+java = C:\path\to\java
+</code></pre><p>解决方法：</p>
+<p>将以下代码保存到文本中<br>[executables]</p>
+<p>java = C:\ProgramFiles\Java\jdk1.8.0_71\bin\java.exe</p>
+<p>javac = C:\ProgramFiles\Java\jdk1.8.0_71\bin\javac.exe<br>java.exe 和javac.exe的文件路径按以上格式写好，保存在1.drozer_config文件中，用</p>
+<p>rename1.drozer_config .drozer_config<br>将1.drozer_config文件名改为.drozer_config，将.drozer_config文件保存 在”c:\users\你的用户名”文件夹下。</p>
+<p>3.问题二<br><strong><em>**</em></strong>图片1-2 <strong>**</strong><br><img src="\images\android\adb\1-2.png" alt="image"><br>出现此错误只需要重启一下就可以了。<br>4.问题三</p>
+<p>ErrNo 10061</p>
+<p>解决方法：</p>
+<p>首先检查adb可正确，adb shell能不能进去，如果能<br>那么输入 adb forward tcp:31415 tcp:31415<br>再drozer.bat console connect即可</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/01/01/运行javac报告javac不是内部或外部命令，但是运行java、java-version正常/" itemprop="url">
                   运行javac报告javac不是内部或外部命令，但是运行java、java -version正常
                 </a>
@@ -870,491 +1422,13 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/18/Hexo搭建GitHub博客（三）-Next主题配置使用/" itemprop="url">
-                  Hexo搭建GitHub博客（三）- Next主题配置使用
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-18T17:43:40+08:00" content="2016-11-18">
-              2016-11-18
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">hexo</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/18/Hexo搭建GitHub博客（三）-Next主题配置使用/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/18/Hexo搭建GitHub博客（三）-Next主题配置使用/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>NexT是一款简洁优雅且易于使用的主题，配置比较简单，只需要稍微修改配置文件即可，功能也比较全，分类、归档、标签显示明了，让人一看就知道干嘛的。</p>
-<p><a href="http://theme-next.iissnan.com/getting-started.html">NexT主题官方文档</a>还算详细，但是有些部分的介绍不够详细，这里我做部分补充，并对自己做了修改的部分作介绍。</p>
-<blockquote>
-<p>Hexo 有两份主要的配置文件（_config.yml），一份位于站点根目录下，另一份位于主题目录下。为了描述方便，在以下说明中，将前者称为站点配置文件，后者称为主题配置文件。</p>
-</blockquote>
-<h2 id="NexT主题安装"><a href="#NexT主题安装" class="headerlink" title="NexT主题安装"></a><strong>NexT主题安装</strong></h2><h3 id="下载NexT主题"><a href="#下载NexT主题" class="headerlink" title="下载NexT主题"></a><strong>下载NexT主题</strong></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cd your-hexo-site`</div><div class="line">$ git clone https://github.com/iissnan/hexo-theme-next themes/next</div></pre></td></tr></table></figure>
-<h3 id="修改站点配置文件"><a href="#修改站点配置文件" class="headerlink" title="修改站点配置文件"></a><strong>修改站点配置文件</strong></h3><p>修改站点配置文件_config.yml，找到以下部分<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/18/Hexo搭建GitHub博客（三）-Next主题配置使用/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/18/Hexo搭建Github博客（二）-Hexo配置和使用/" itemprop="url">
-                  Hexo搭建Github博客（二）- Hexo配置和使用
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-18T17:15:05+08:00" content="2016-11-18">
-              2016-11-18
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/18/Hexo搭建Github博客（二）-Hexo配置和使用/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/18/Hexo搭建Github博客（二）-Hexo配置和使用/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>这篇博文主要介绍Hexo的配置安装和Hexo的常用命令，还有如何部署博客到Github。</p>
-<h2 id="前提条件："><a href="#前提条件：" class="headerlink" title="前提条件："></a><strong>前提条件：</strong></h2><pre><code>&gt; 电脑上已配置nodejs环境，因为要用到nodejs的包管理器npm。
-</code></pre><h2 id="Hexo安装"><a href="#Hexo安装" class="headerlink" title="Hexo安装"></a><strong>Hexo安装</strong></h2><p>打开Git命令行，执行如下命令<br>npm install -g hexo</p>
-<h2 id="初始化博客"><a href="#初始化博客" class="headerlink" title="初始化博客"></a><strong>初始化博客</strong></h2>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/18/Hexo搭建Github博客（二）-Hexo配置和使用/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/18/Hexo搭建Github博客（一）-环境搭建/" itemprop="url">
-                  Hexo搭建Github博客（一）- 环境搭建
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-18T15:35:04+08:00" content="2016-11-18">
-              2016-11-18
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/11/18/Hexo搭建Github博客（一）-环境搭建/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/18/Hexo搭建Github博客（一）-环境搭建/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>个人看法,github不图谋利，相当于一个数据源库，提供了丰富的数据库自己在做项目的过程中可以借鉴他人的开源代码，使用很方便，可以通过git 实现代码的托管，最重要的是免费使用，速度快而且还稳定，毕竟逼格那么高，就凑合着用吧，一回生，二回熟！！！</p>
-<h3 id="设置Github"><a href="#设置Github" class="headerlink" title="设置Github"></a>设置Github</h3><h4 id="注册github"><a href="#注册github" class="headerlink" title="注册github"></a>注册github</h4><p>地址：<a href="https://github.com/">https://github.com/</a><br>按照提示注册就可以了，注册成功去验证邮箱。</p>
-<p>创建github仓库<br><img src="\images\hexo\1-1.png" alt="image"><br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/18/Hexo搭建Github博客（一）-环境搭建/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/29/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-29T14:36:53+08:00" content="2016-10-29">
-              2016-10-29
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/29/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/29/hello-world/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a><br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/29/hello-world/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1393,7 +1467,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1401,7 +1475,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1410,7 +1484,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

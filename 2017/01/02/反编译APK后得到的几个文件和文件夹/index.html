@@ -1,0 +1,792 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.2" />
+
+
+
+
+
+
+<meta name="description" content="1。 assets 文件夹此文件夹可以存放资源文件。至于是神马资源文件，怎么读取，这些我们就不用深究了，因为不常改。2。 res 文件夹主要用来存放资源。此文件夹下可以创建子文件，常见的有：anim 动画drawable 图片color 颜色menu 菜单layout 布局values 常量值xml 任意xml文件我们修改apk时，一般就在这里修改。比如汉化，改名称，去广告，改字体颜色，大小神马的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="反编译APK后得到的几个文件和文件夹">
+<meta property="og:url" content="http://yoursite.com/2017/01/02/反编译APK后得到的几个文件和文件夹/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1。 assets 文件夹此文件夹可以存放资源文件。至于是神马资源文件，怎么读取，这些我们就不用深究了，因为不常改。2。 res 文件夹主要用来存放资源。此文件夹下可以创建子文件，常见的有：anim 动画drawable 图片color 颜色menu 菜单layout 布局values 常量值xml 任意xml文件我们修改apk时，一般就在这里修改。比如汉化，改名称，去广告，改字体颜色，大小神马的">
+<meta property="og:updated_time" content="2017-01-02T13:06:49.223Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="反编译APK后得到的几个文件和文件夹">
+<meta name="twitter:description" content="1。 assets 文件夹此文件夹可以存放资源文件。至于是神马资源文件，怎么读取，这些我们就不用深究了，因为不常改。2。 res 文件夹主要用来存放资源。此文件夹下可以创建子文件，常见的有：anim 动画drawable 图片color 颜色menu 菜单layout 布局values 常量值xml 任意xml文件我们修改apk时，一般就在这里修改。比如汉化，改名称，去广告，改字体颜色，大小神马的">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/01/02/反编译APK后得到的几个文件和文件夹/"/>
+
+
+  <title> 反编译APK后得到的几个文件和文件夹 | Hexo </title>
+</head>
+
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hexo</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                反编译APK后得到的几个文件和文件夹
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-01-02T21:06:30+08:00" content="2017-01-02">
+              2017-01-02
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/01/02/反编译APK后得到的几个文件和文件夹/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/02/反编译APK后得到的几个文件和文件夹/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>1。 assets 文件夹<br>此文件夹可以存放资源文件。至于是神马资源文件，怎么读取，这些我们就不用深究了，因为不常改。<br>2。 res 文件夹<br>主要用来存放资源。此文件夹下可以创建子文件，常见的有：<br>anim 动画<br>drawable 图片<br>color 颜色<br>menu 菜单<br>layout 布局<br>values 常量值<br>xml 任意xml文件<br>我们修改apk时，一般就在这里修改。比如汉化，改名称，去广告，改字体颜色，大小神马的。<br>3。smali<br>里面主要是dex文件反编译得到的smali文件。不会java的改不起。顶多搜几个关键词汉化一下。值得注意的是，汉化时不能直接输入汉字，而应输入对应的十六进制代码。<br>4。AndroidManifest.xml<br>此文件是apk中最重要的文件之一。它是apk的全局配置文件，提供了android系统所需要的关于该应用的必要信息。</p>
+<p>res目录浅说：<br>1 anim文件夹<br>    后缀名为.xml。动画文件都放在这里。<br>2 drawable文件夹<br>用于存放图片资源，图片或者xml。<br>(1) 图片<br>图片格式：png，9.png，jpg，gif。<br>注意：9.png是一种特殊的png格式，与一般的png格式有区别！很多人在改完图片后将两种格式混淆，导致回编译失败。后面有制作9.png格式图片的方法。<br>(2) xml<br>xml文件通常为自定义的形状shape或图片选择器类selector似的东西，就是不同状态下不同的图片，用于设置background什么的。<br>(3) drawable文件夹为了对屏幕的适配，<br>①对分辨率笼统的分：名字可以为：drawable-ldpi<br>drawable-mdpi<br>drawable-hdpi<br>drawable-xhdp<br>drawable-nodpi<br>drawable-tvdpi<br>分辨率依次由高到低<br>②具体到某一分辨率：drawable-分辨率，比如：drawable-1280x720<br>③如果有横竖屏的区别，则命名为：drawable-land/port-mdpi，<br>3 color文件夹<br>用于存放color列表，和drawable的xml一样，表示不同状态下的不同颜色<br>4 menu文件夹<br>菜单资源文件夹。<br>5 layout文件夹<br>布局文件夹。此文件夹的名字也是可以起到屏幕适配的功能的。<br>①横竖屏：layout-land/port<br>②分辨率：layout-1280x720<br>6 values文件夹<br>存放常量值的文件夹。里面常见的xml文件为：<br>arrays.xml ：  资源数组.<br>colors.xml :   颜色值<br>dimens.xml ：  像素值.<br>strings.xml ： 字符串值.<br>styles.xml ：  样式值.<br>此文件夹，也有屏幕适配作用。比如：dimens在不同分辨率下的值。同样的是加-1280x720这样的后缀。<br>对于strings，values文件夹有各种语言的版本对应。默认为英文。中文的文件夹名字应该是：<br>values-zh-rCN 简体中文<br>values-zh-rTW 繁体中文<br>7 raw文件夹<br>存放不需要系统编译成二进制的文件，例如字体文件等，同assets文件夹类似。<br>8 xml文件夹<br>存放任意的xml文件。具体看名字。</p>
+<p>改apk时，我们主要改两种，即图片和xml。先讲图片：<br>改图片最简单了，注意好格式，分辨率即可。但有一点需注意，就是9.png和png格式图片的区别。许多人没注意这点，导致回编译总是失败。下面讲9.png格式图片的制作。<br>1 介绍 9patch<br>NinePatch.图片以*.9.png结尾，和普通图片的区别是四周多了一个边框<br>左边那条黑色线代表图片垂直拉伸的区域，上边的那条黑色线代表水平拉伸区域，右边的黑色线代表内容绘制的垂直区域，下边的黑色线代表内容绘制的水平区域，右边和下边的线是可选的，左边和上边的线不能省略。<br>采用NinePatch.图片做背景，可使背景随着内容的拉伸（缩小）而拉伸（缩小）<br>总之，通俗的将，9patch格式的图片就是有些部位能伸缩，有些部位不能的特殊png格式图片。<br>2 将png转化为9.png步骤如下<br>第一步，下载9妹工具，一楼工具包里有，双击打开draw9patch.bat，将图片拖到软件界面编辑。<br>第二步，勾选软件下面的三个选项，全选就对了。<br>第三步，把鼠标放到图片中央，此时你会看到图片四周有1像素的透明带<br>第四步，在左边和上边的透明带上各画一条黑线（鼠标拖动即可）<br>注意：当图片过大时上边的透明带会被黄色的提示框遮住，此时只能多点击黄色区域自己摸索透明带的位置。<br>第五步，保存，这个不用多说吧。<br>至此，将图片替换回原来的文件夹即可。需要注意的是，刚编辑的9patch.图片不能直接拖到原apk中，而应回编译后再替换进去。</p>
+<p>再说修改xml。改字体，软件全局背景，汉化，去广告神马的都通过这种方式。我们常改的是layout，drawable，values目录下的xml文件，如果要改桌面插件，要去xml文件夹中修改。必要时也可尝试修改AndroidManifest.xml。下面是常见代码（分类非标准）<br>1 引用（@）<br>1)引用自定义的资源<br>形式 @[package:]type/name<br>如 android:text=”@string/hello”<br>这里使用”@”前缀引入对一个资源的引用，后面的string/hello就是我们自定义的资源。<br>2) 引用系统资源<br>形式 @android:type/name<br>如 android:textColor=”@android:color/opaque_red” 指定package:android<br>3) 引用主题属性<br>形式 ？android:type/name<br>即引用当前主题中的属性的值。<br>2 文本（text）<br>textColor 文本颜色<br>textColorHighlight 被选中文字的底色，默认为蓝色<br>textColorHint 提示信息文字的颜色，默认为灰色。与hint一起使用<br>textColorLink 文字链接的颜色<br>textScaleX 设置文字之间间隔，默认为1.0f<br>textSize 文字大小<br>textStyle 字形<br>typeface 文本字体<br>height 文本区域的高度<br>maxHeight 文本区域的最大高度<br>width 文本区域的宽度<br>lines 文本的行数<br>3 视图（view）<br>background 背景色/背景图片（@null 透明）<br>clickable 是否响应点击事件<br>focusable 是否获得焦点<br>minHeight 视图最小高度<br>minWidth 视图最小宽度<br>padding 上下左右的边距<br>scrollbar 滚动条（none 隐藏，horizontal 水平，vertical 垂直）<br>tag 文本标签<br>visibility 是否显示View（visible 默认值，显示；invisible 不显示，但是仍然占用空间；gone 不显示，不占用空间）<br>4 布局（layout）<br>LinearLayout 线性布局<br>FrameLayout 单帧布局<br>RelativeLayout 相对布局<br>AbsoluteLayout 绝对布局<br>TableLayout 表格布局<br>layout_width 宽度<br>layout_height 高度<br>fill_patent 布满屏幕<br>wrap_content 适合大小<br>foreground 前景<br>background 背景<br>gravity 位置（center_vertical 居中；top 顶部，默认；bottom 底部）<br>orientation 定向（horizontal 水平，vertical 垂直）<br>5 主题（theme）<br>Theme.Dialog 对话框模式<br>Theme.NoTitleBar 无标题栏<br>Theme.NoTitleBar.Fullscreen 无标题栏，全屏<br>Theme.Light 白色背景<br>Theme.Light.NoTitleBar 白色背景，无标题栏<br>Theme.Light.NoTitleBar.Fullscreen 白色背景，无标题栏，全屏<br>Theme.Black 黑色背景<br>Theme.Black.NoTitleBar 黑色背景并，无标题栏<br>Theme.Black.NoTitleBar.Fullscreen 黑色背景，无标题栏，全屏<br>Theme.Wallpaper 桌面背景<br>Theme.Wallpaper.NoTitleBar 桌面背景，无标题栏<br>Theme.Wallpaper.NoTitleBar.Fullscreen 桌面背景，无标题栏，全屏<br>Theme.Translucent 半透明效果<br>Theme.Translucent.NoTitleBar 半透明，无标题栏<br>Theme.Translucent.NoTitleBar.Fullscreen 半透明效果，无标题栏，全屏<br>Theme.Panel 面板风格显示<br>Theme.Light.Panel 平板风格显示<br>6 颜色（color）<br>1) @color/×× 引用自定义的颜色，一般在res/values/colors.xml中<br>2) @android:color/×× 引用系统颜色<br>3) #×××××××× #后一共8个字符，由0~9，a~f组成。前两位是透明度，00表示全透明，ff表示不透明。后6位是RRGGBB，R红G绿B蓝，000000为白，ffffff为黑<br>7 单位<br>px 像素点<br>in 英寸<br>mm 毫米<br>pt 磅，1/72 英寸<br>dp 一个基于density的抽象单位，如果一个160dpi的屏幕，1dp=1px<br>dip 等同于dp<br>sp 同dp相似，但还会根据用户的字体大小偏好来缩放。<br>注意：sp一般是文本的单位，dip最常用</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/01/02/adb-logcat命令查看并过滤android输出log/" rel="next" title="adb logcat命令查看并过滤android输出log">
+                <i class="fa fa-chevron-left"></i> adb logcat命令查看并过滤android输出log
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/02/Drozer使用及相关命令/" rel="prev" title="Drozer使用及相关命令">
+                Drozer使用及相关命令 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/01/02/反编译APK后得到的几个文件和文件夹/"
+           data-title="反编译APK后得到的几个文件和文件夹" data-url="http://yoursite.com/2017/01/02/反编译APK后得到的几个文件和文件夹/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="不倒翁小郑" />
+          <p class="site-author-name" itemprop="name">不倒翁小郑</p>
+          <p class="site-description motion-element" itemprop="description">无需言，做自己！</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">14</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/ZhengSY1222" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.dadongge.ga" title="大栋哥" target="_blank">大栋哥</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">不倒翁小郑</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"akiss-zsy"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = false;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = decodeURIComponent(data.url);
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title >= 0 || index_content >= 0 ){
+                                isMatch = true;
+								if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            } 
+							
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
