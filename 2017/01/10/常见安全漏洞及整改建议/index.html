@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Drozer,Android,渗透测试," />
+  <meta name="keywords" content="渗透测试," />
 
 
 
@@ -84,19 +84,16 @@
 
 
 
-<meta name="description" content="安装与启动安装第一步：从http://mwr.to/drozer下载Drozer (Windows Installer)第二步：在Android设备中安装agent.apk1adb install agent.apk
-启动第一步：在PC上使用adb进行端口转发，转发到Drozer使用的端口314151adb forward tcp:31415 tcp:31415">
+<meta name="description" content="无需言，做自己！">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Drozer使用及相关命令">
-<meta property="og:url" content="http://yoursite.com/2017/01/02/Drozer使用及相关命令/index.html">
+<meta property="og:title" content="常见安全漏洞及整改建议">
+<meta property="og:url" content="http://yoursite.com/2017/01/10/常见安全漏洞及整改建议/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="安装与启动安装第一步：从http://mwr.to/drozer下载Drozer (Windows Installer)第二步：在Android设备中安装agent.apk1adb install agent.apk
-启动第一步：在PC上使用adb进行端口转发，转发到Drozer使用的端口314151adb forward tcp:31415 tcp:31415">
-<meta property="og:updated_time" content="2017-01-03T10:19:10.230Z">
+<meta property="og:description" content="无需言，做自己！">
+<meta property="og:updated_time" content="2017-01-10T14:12:45.027Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Drozer使用及相关命令">
-<meta name="twitter:description" content="安装与启动安装第一步：从http://mwr.to/drozer下载Drozer (Windows Installer)第二步：在Android设备中安装agent.apk1adb install agent.apk
-启动第一步：在PC上使用adb进行端口转发，转发到Drozer使用的端口314151adb forward tcp:31415 tcp:31415">
+<meta name="twitter:title" content="常见安全漏洞及整改建议">
+<meta name="twitter:description" content="无需言，做自己！">
 
 
 
@@ -117,10 +114,10 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/01/02/Drozer使用及相关命令/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/01/10/常见安全漏洞及整改建议/"/>
 
 
-  <title> Drozer使用及相关命令 | Hexo </title>
+  <title> 常见安全漏洞及整改建议 | Hexo </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -273,7 +270,7 @@
             
             
               
-                Drozer使用及相关命令
+                常见安全漏洞及整改建议
               
             
           </h1>
@@ -285,8 +282,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-01-02T21:07:47+08:00" content="2017-01-02">
-              2017-01-02
+            <time itemprop="dateCreated" datetime="2017-01-10T22:07:46+08:00" content="2017-01-10">
+              2017-01-10
             </time>
           </span>
 
@@ -299,8 +296,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
+                  <a href="/categories/Web安全/" itemprop="url" rel="index">
+                    <span itemprop="name">Web安全</span>
                   </a>
                 </span>
 
@@ -315,8 +312,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/01/02/Drozer使用及相关命令/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/02/Drozer使用及相关命令/" itemprop="commentsCount"></span>
+                <a href="/2017/01/10/常见安全漏洞及整改建议/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/10/常见安全漏洞及整改建议/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -339,17 +336,7 @@
       
 
       
-        <h2 id="安装与启动"><a href="#安装与启动" class="headerlink" title="安装与启动"></a>安装与启动</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>第一步：从<a href="http://mwr.to/drozer" target="_blank" rel="external">http://mwr.to/drozer</a>下载Drozer (Windows Installer)<br>第二步：在Android设备中安装agent.apk<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb install agent.apk</div></pre></td></tr></table></figure></p>
-<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><p>第一步：在PC上使用adb进行端口转发，转发到Drozer使用的端口31415<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb forward tcp:31415 tcp:31415</div></pre></td></tr></table></figure></p>
-<a id="more"></a>
-<p>安卓模拟器上需要先连:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb connect 127.0.0.1:62001</div></pre></td></tr></table></figure></p>
-<p>第二步：在Android设备（手机或者平板）上开启Drozer Agent<br>选择embedded server-enable<br>第三步：在PC上开启Drozer console<br>在安装目录cmd下输入连接命令:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">drozer console connect(或者 drozer.bat console connect)</div></pre></td></tr></table></figure></p>
-<p>或者在adb下输入:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">drozer console connect</div></pre></td></tr></table></figure></p>
-<p>如果报错，重启一下即可。</p>
-<h2 id="测试步骤"><a href="#测试步骤" class="headerlink" title="测试步骤"></a>测试步骤</h2><h3 id="获取包名"><a href="#获取包名" class="headerlink" title="获取包名"></a>获取包名</h3><p>　　dz&gt; run app.package.list -f sieve<br>　　com.mwr.example.sieve</p>
-<h3 id="获取应用的基本信息"><a href="#获取应用的基本信息" class="headerlink" title="获取应用的基本信息"></a>获取应用的基本信息</h3><p>　　run app.package.info -a com.mwr.example.sieve</p>
-<h3 id="确定攻击面"><a href="#确定攻击面" class="headerlink" title="确定攻击面"></a>确定攻击面</h3><p>　　run app.package.attacksurface com.mwr.example.sieve<br>　　4.Activity<br>　　（1）获取activity信息<br>　　run app.activity.info -a com.mwr.example.sieve<br>　　（2）启动activity<br>　　run app.activity.start –component com.mwr.example.sieve<br>　　dz&gt; help app.activity.start<br>　　usage: run app.activity.start [-h] [–action ACTION] [–category CATEGORY]<br>　　[–component PACKAGE COMPONENT] [–data-uri DATA_URI]<br>　　[–extra TYPE KEY VALUE] [–flags FLAGS [FLAGS …]]<br>　　[–mimetype MIMETYPE]<br>　　5.Content Provider<br>　　（1）获取Content Provider信息<br>　　run app.provider.info -a com.mwr.example.sieve<br>　　（2）Content Providers（数据泄露）<br>　　先获取所有可以访问的Uri：<br>　　run scanner.provider.finduris -a com.mwr.example.sieve<br>　　获取各个Uri的数据：<br>　　run app.provider.query<br>　　content://com.mwr.example.sieve.DBContentProvider/Passwords/ –vertical<br>　　查询到数据说明存在漏洞<br>　　（3）Content Providers（SQL注入）<br>　　run app.provider.query content://com.mwr.example.sieve.DBContentProvider/Passwords/ –projection “‘“<br>　　run app.provider.query content://com.mwr.example.sieve.DBContentProvider/Passwords/ –selection “‘“<br>　　报错则说明存在SQL注入。<br>　　列出所有表：<br>　 　run app.provider.query content://com.mwr.example.sieve.DBContentProvider/Passwords/ –projection “<em> FROM SQLITE_MASTER WHERE type=’table’;–”<br>　　获取某个表（如Key）中的数据：<br>　　run app.provider.query content://com.mwr.example.sieve.DBContentProvider/Passwords/ –projection “</em> FROM Key;–”<br>　　（4）同时检测SQL注入和目录遍历<br>　　run scanner.provider.injection -a com.mwr.example.sieve<br>　　run scanner.provider.traversal -a com.mwr.example.sieve<br>　　6 intent组件触发（拒绝服务、权限提升）<br>　　利用intent对组件的触发一般有两类漏洞，一类是拒绝服务，一类的权限提升。拒绝服务危害性比较低，更多的只是影响应用服务质量；而权限提升将使得没有该权限的应用可以通过intent触发拥有该权限的应用，从而帮助其完成越权行为。<br>　　1.查看暴露的广播组件信息：<br>　　run app.broadcast.info -a com.package.name　　获取broadcast receivers信息<br>　　run app.broadcast.send –component 包名 –action android.intent.action.XXX<br>　　2.尝试拒绝服务攻击检测，向广播组件发送不完整intent（空action或空extras）：<br>　　run app.broadcast.send 通过intent发送broadcast receiver<br>　　(1)   空action<br>　　run app.broadcast.send –component 包名 ReceiverName<br>　　run app.broadcast.send –component 包名 ReceiverName<br>　　(2)   空extras<br>　　run app.broadcast.send –action android.intent.action.XXX<br>　　3.尝试权限提升<br>　 　权限提升其实和拒绝服务很类似，只不过目的变成构造更为完整、更能满足程序逻辑的intent。由于activity一般多于用户交互有关，所以基 于intent的权限提升更多针对broadcast receiver和service。与drozer相关的权限提升工具，可以参考IntentFuzzer，其结合了drozer以及hook技术，采用 feedback策略进行fuzzing。以下仅仅列举drozer发送intent的命令：<br>　　（1）获取service详情<br>　　run app.service.info -a com.mwr.example.sieve<br>　　不使用drozer启动service<br>　　am startservice –n 包名/service名<br>　　（2）权限提升<br>　 　run app.service.start –action com.test.vulnerability.SEND_SMS –extra string dest 11111 –extra string text 1111 –extra string OP SEND_SMS<br>　　7.文件操作<br>　　列出指定文件路径里全局可写/可读的文件<br>　　run scanner.misc.writablefiles –privileged /data/data/com.sina.weibo<br>　　run scanner.misc.readablefiles –privileged /data/data/com.sina.weibo<br>　　run app.broadcast.send –component 包名 –action android.intent.action.XXX<br>　　8.其它模块<br>　　shell.start 在设备上开启一个交互shell<br>　　tools.file.upload / tools.file.download 上传/下载文件到设备<br>　　tools.setup.busybox / tools.setup.minimalsu 安装可用的二进制文件</p>
-
+        
       
     </div>
 
@@ -371,10 +358,6 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Drozer/" rel="tag">#Drozer</a>
-          
-            <a href="/tags/Android/" rel="tag">#Android</a>
-          
             <a href="/tags/渗透测试/" rel="tag">#渗透测试</a>
           
         </div>
@@ -384,16 +367,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/02/反编译APK后得到的几个文件和文件夹/" rel="next" title="反编译APK后得到的几个文件和文件夹">
-                <i class="fa fa-chevron-left"></i> 反编译APK后得到的几个文件和文件夹
+              <a href="/2017/01/03/常见漏洞测试流程案例之账号注册、密码找回/" rel="next" title="常见漏洞测试流程案例之账号注册、密码找回">
+                <i class="fa fa-chevron-left"></i> 常见漏洞测试流程案例之账号注册、密码找回
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/01/03/常见漏洞测试流程案例之账号注册、密码找回/" rel="prev" title="常见漏洞测试流程案例之账号注册、密码找回">
-                常见漏洞测试流程案例之账号注册、密码找回 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/01/11/移动端常见漏洞检测方法/" rel="prev" title="移动端常见漏洞检测方法">
+                移动端常见漏洞检测方法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -429,8 +412,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/01/02/Drozer使用及相关命令/"
-           data-title="Drozer使用及相关命令" data-url="http://yoursite.com/2017/01/02/Drozer使用及相关命令/">
+      <div class="ds-thread" data-thread-key="2017/01/10/常见安全漏洞及整改建议/"
+           data-title="常见安全漏洞及整改建议" data-url="http://yoursite.com/2017/01/10/常见安全漏洞及整改建议/">
       </div>
     
   </div>
@@ -546,7 +529,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装与启动"><span class="nav-number">1.</span> <span class="nav-text">安装与启动</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">1.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动"><span class="nav-number">1.2.</span> <span class="nav-text">启动</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试步骤"><span class="nav-number">2.</span> <span class="nav-text">测试步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取包名"><span class="nav-number">2.1.</span> <span class="nav-text">获取包名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取应用的基本信息"><span class="nav-number">2.2.</span> <span class="nav-text">获取应用的基本信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#确定攻击面"><span class="nav-number">2.3.</span> <span class="nav-text">确定攻击面</span></a></li></ol></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>
