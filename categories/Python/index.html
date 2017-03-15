@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Android,渗透测试,ADB," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -84,22 +84,15 @@
 
 
 
-<meta name="description" content="cmd命令行中使用adb logcat命令查看Android系统和应用的log，dos窗口按ctrl+c中断输出log记录。
-
-logcat日志中的优先级/tag标记android输出的每一条日志都有一个标记和优先级与其关联。优先级是下面的字符，顺序是从低到高：1234567V — 明细 verbose(最低优先级)D — 调试 debugI — 信息 infoW — 警告 warnE — 错误">
-<meta property="og:type" content="article">
-<meta property="og:title" content="adb logcat命令查看并过滤android输出log">
-<meta property="og:url" content="http://yoursite.com/2017/01/02/adb-logcat命令查看并过滤android输出log/index.html">
+<meta name="description" content="深情不及久伴，厚爱无需多言。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/categories/Python/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="cmd命令行中使用adb logcat命令查看Android系统和应用的log，dos窗口按ctrl+c中断输出log记录。
-
-logcat日志中的优先级/tag标记android输出的每一条日志都有一个标记和优先级与其关联。优先级是下面的字符，顺序是从低到高：1234567V — 明细 verbose(最低优先级)D — 调试 debugI — 信息 infoW — 警告 warnE — 错误">
-<meta property="og:updated_time" content="2017-01-03T10:17:25.132Z">
+<meta property="og:description" content="深情不及久伴，厚爱无需多言。">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="adb logcat命令查看并过滤android输出log">
-<meta name="twitter:description" content="cmd命令行中使用adb logcat命令查看Android系统和应用的log，dos窗口按ctrl+c中断输出log记录。
-
-logcat日志中的优先级/tag标记android输出的每一条日志都有一个标记和优先级与其关联。优先级是下面的字符，顺序是从低到高：1234567V — 明细 verbose(最低优先级)D — 调试 debugI — 信息 infoW — 警告 warnE — 错误">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="深情不及久伴，厚爱无需多言。">
 
 
 
@@ -120,10 +113,10 @@ logcat日志中的优先级/tag标记android输出的每一条日志都有一个
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/01/02/adb-logcat命令查看并过滤android输出log/"/>
+  <link rel="canonical" href="http://yoursite.com/categories/Python/"/>
 
 
-  <title> adb logcat命令查看并过滤android输出log | Hexo </title>
+  <title> 分类: Python | Hexo </title>
 </head>
 
 <body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
@@ -144,7 +137,7 @@ logcat日志中的优先级/tag标记android输出的每一条日志都有一个
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container one-collumn sidebar-position-left  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
@@ -255,192 +248,54 @@ logcat日志中的优先级/tag标记android输出的每一条日志都有一个
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                adb logcat命令查看并过滤android输出log
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-01-02T21:05:17+08:00" content="2017-01-02">
-              2017-01-02
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/01/02/adb-logcat命令查看并过滤android输出log/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/02/adb-logcat命令查看并过滤android输出log/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <blockquote>
-<p>cmd命令行中使用adb logcat命令查看Android系统和应用的log，dos窗口按ctrl+c中断输出log记录。</p>
-</blockquote>
-<h2 id="logcat日志中的优先级-tag标记"><a href="#logcat日志中的优先级-tag标记" class="headerlink" title="logcat日志中的优先级/tag标记"></a>logcat日志中的优先级/tag标记</h2><p>android输出的每一条日志都有一个标记和优先级与其关联。<br>优先级是下面的字符，顺序是从低到高：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">V — 明细 verbose(最低优先级)</div><div class="line">D — 调试 debug</div><div class="line">I — 信息 info</div><div class="line">W — 警告 warn</div><div class="line">E — 错误 error</div><div class="line">F — 严重错误 fatal</div><div class="line">S — 无记载 silent</div></pre></td></tr></table></figure></p>
-<a id="more"></a>
-<p>标记是一个简短的字符串，用于标识原始消息的来源。如下是一个日志输出的消息，优先级是“D”，标记是“PowerManagerService”：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">D/PowerManagerService( 305): onSensorChanged: light value: 306.0</div></pre></td></tr></table></figure></p>
-<h2 id="使用logcat命令查看android日志输出"><a href="#使用logcat命令查看android日志输出" class="headerlink" title="使用logcat命令查看android日志输出"></a>使用logcat命令查看android日志输出</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">adb logcat     //显示全部日志</div><div class="line">adb logcat &gt; c:\test.log //将日志保存到文件test.log</div></pre></td></tr></table></figure>
-<h2 id="根据tag标记和级别过滤日志输出"><a href="#根据tag标记和级别过滤日志输出" class="headerlink" title="根据tag标记和级别过滤日志输出"></a>根据tag标记和级别过滤日志输出</h2><p>仅输出标记为“ActivityManager”且优先级大于等于“Info”和标记为“PowerManagerService”并且优先级大于等于“Debug”的日志：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb logcat ActivityManager:I PowerManagerService:D *:S</div></pre></td></tr></table></figure></p>
-<p>注：<em>:S用于设置所有标记的日志优先级为S，这样可以确保仅输出符合条件的日志。<br>adb logcat </em>:W   //显示所有优先级大于等于“warning”的日志<br>adb logcat -s PowerManagerService   //显示PowerManagerService的日志信息</p>
-<h2 id="Logcat命令列表"><a href="#Logcat命令列表" class="headerlink" title="Logcat命令列表"></a>Logcat命令列表</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">-d 将日志显示在控制台后退出</div><div class="line">-c 清理已存在的日志</div><div class="line">-f &lt;filename&gt; 将日志输出到文件</div><div class="line">***adb logcat -f /sdcard/test.txt***</div><div class="line">-v &lt;format&gt;设置日志输入格式控制输出字段，默认的是brief格式</div><div class="line">brief — 显示优先级/标记和原始进程的PID (默认格式)</div><div class="line">process — 仅显示进程PID</div><div class="line">tag — 仅显示优先级/标记</div><div class="line">thread — 仅显示进程：线程和优先级/标记</div><div class="line">raw — 显示原始的日志信息，没有其他的元数据字段</div><div class="line">time — 显示日期，调用时间，优先级/标记，PID</div><div class="line">long —显示所有的元数据字段并且用空行分隔消息内容</div><div class="line">***adb logcat -v thread   //使用 thread 输出格式***</div><div class="line">***注意-v 选项中只能指定一种格式。***</div><div class="line">-b &lt;buffer&gt;加载一个可使用的日志缓冲区供查看，默认值是main。</div><div class="line">radio — 查看包含在无线/电话相关的缓冲区消息</div><div class="line">***adb logcat -b radio     //查看radio缓冲区***</div><div class="line">events — 查看事件相关的消息</div><div class="line">main — 查看主缓冲区 (默认缓冲区)</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">adb  push  pull</div></pre></td></tr></table></figure>
-<p>下载<br>D:>adb pull /data/ d:\data<br>第一个data是手机或模拟器目录<br>第二个data是PC的目录</p>
-<p>上传<br>adb push D:\file.txt  /system/temp/</p>
-
-      
+  <section id="posts" class="posts-collapse">
+    <div class="collection-title">
+      <h2 >
+        Python
+        <small>分类</small>
+      </h2>
     </div>
 
-    <div>
+    
       
+
+  <article class="post post-type-normal" itemscope itemtype="//schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
         
-
-      
-    </div>
-
-    <div>
-      
+            <a class="post-title-link" href="/2017/03/15/Python实现CDN的判断/" itemprop="url">
+              
+                <span itemprop="name">Python实现CDN的判断</span>
+              
+            </a>
         
+      </h1>
 
-      
-    </div>
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2017-03-15T09:52:33+08:00"
+              content="2017-03-15" >
+          03-15
+        </time>
+      </div>
 
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Android/" rel="tag">#Android</a>
-          
-            <a href="/tags/渗透测试/" rel="tag">#渗透测试</a>
-          
-            <a href="/tags/ADB/" rel="tag">#ADB</a>
-          
-        </div>
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2017/01/02/Dorzer之环境配置/" rel="next" title="Dorzer之环境配置">
-                <i class="fa fa-chevron-left"></i> Dorzer之环境配置
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/01/02/反编译APK后得到的几个文件和文件夹/" rel="prev" title="反编译APK后得到的几个文件和文件夹">
-                反编译APK后得到的几个文件和文件夹 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
+    </header>
   </article>
 
 
+    
+  </section>
 
-    <div class="post-spread">
-      
-        
-<script>
-  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
-</script>
+  
 
-      
-    </div>
-  </div>
 
 
           </div>
           
 
-  <p>热评文章</p>
-  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
-
 
           
-  <div class="comments" id="comments">
-    
-      <div class="ds-thread" data-thread-key="2017/01/02/adb-logcat命令查看并过滤android输出log/"
-           data-title="adb logcat命令查看并过滤android输出log" data-url="http://yoursite.com/2017/01/02/adb-logcat命令查看并过滤android输出log/">
-      </div>
-    
-  </div>
-
 
         </div>
         
@@ -460,17 +315,8 @@ logcat日志中的优先级/tag标记android输出的每一条日志都有一个
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel ">
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -557,17 +403,6 @@ logcat日志中的优先级/tag标记android输出的每一条日志都有一个
 
       </section>
 
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#logcat日志中的优先级-tag标记"><span class="nav-number">1.</span> <span class="nav-text">logcat日志中的优先级/tag标记</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用logcat命令查看android日志输出"><span class="nav-number">2.</span> <span class="nav-text">使用logcat命令查看android日志输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#根据tag标记和级别过滤日志输出"><span class="nav-number">3.</span> <span class="nav-text">根据tag标记和级别过滤日志输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Logcat命令列表"><span class="nav-number">4.</span> <span class="nav-text">Logcat命令列表</span></a></li></ol></div>
-            
-          </div>
-        </section>
       
 
     </div>
@@ -664,10 +499,6 @@ logcat日志中的优先级/tag标记android输出的每一条日志都有一个
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.2"></script>
-
-
 
   
 
